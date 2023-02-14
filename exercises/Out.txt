@@ -1,0 +1,19 @@
+my max int = 2147483647
+int.MaxValue=2147483647
+my min int = -2147483648
+int.MinValue=2147483647
+My machine epsilon for double is 2.22044604925031E-16
+Machines epsilon should be 2.22044604925031E-16
+My machine epsilon for float is 1.192093E-07
+Machines epsilon should be 1.19209289550781E-07
+sumA-1 = 0.000000e+000 should be 1.110223e-010
+
+sumB-1 = 1.110223e-010 should be 1.110223e-010
+
+The sumB is the right amount because the tiny amount by it self is possible
+to write in binary and thus requires less space than 1+tiny, which the
+double havn't space for
+d1=7.999999999999999e-001
+d2=8.000000000000000e-001
+The reason d1==d2 => False
+But approx(d1,d2) => True is that there is a limit to binary precision
