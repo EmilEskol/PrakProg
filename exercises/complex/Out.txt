@@ -1,0 +1,20 @@
+sqrt(-1)=6.12e-17+-1i
+e^i=0.54+0.841i
+e^ipi=-1+1.22e-16i
+i^i=0.208+0i
+ln(i)=0+1.57i
+sin(i*pi)=0+11.5i
+Testing sqrt(-1)
+Succes
+Testing sqrt(-i)
+Succes
+Testing e^i
+Succes
+Testing e^(i*pi)
+Succes
+Testing i^i
+Succes
+Testing ln(i)
+Succes
+Testing sin(i*pi)
+Succes

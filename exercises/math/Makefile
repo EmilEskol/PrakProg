@@ -1,3 +1,4 @@
+
 out.txt: main.exe
 	mono main.exe > Out.txt
 sfuns.dll: sfuns.cs
