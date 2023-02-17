@@ -6,13 +6,13 @@ static class stdin{
 		char[] splitDelimeters={' ','\t','\n'};
 		var splitOptions=StringSplitOptions.RemoveEmptyEntries;
 		int calls=0;
-		for(string line=ReadLine();line!=null||calls>10;ReadLine()){
+		for(string line=ReadLine();line!=null;line=ReadLine()){
 			var numbers = line.Split(splitDelimeters,splitOptions);
 			foreach(var number in numbers){
 				double x = double.Parse(number);
 				WriteLine($"{x} {Sin(x)} {Cos(x)}");
+				calls++;
 			}
-			calls++;
 		}
 	}
 }
