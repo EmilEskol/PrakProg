@@ -1,0 +1,44 @@
+nTerms=2000000000 nThreads=1
+master thread: now waiting for other threads...
+thread number 1 a=1 b=2000000001
+thread number 1 partialSum =21.9936286826628
+total = 21.9936286826628
+real 5.70
+user 5.60
+sys 0.04
+nTerms=2000000000 nThreads=2
+master thread: now waiting for other threads...
+thread number 1 a=1 b=1000000001
+thread number 2 a=1000000001 b=-147483647
+thread number 2 partialSum =0
+thread number 1 partialSum =21.3004815023485
+total = 21.3004815023485
+real 2.91
+user 2.83
+sys 0.02
+nTerms=2000000000 nThreads=3
+thread number 1 a=1 b=666666667
+thread number 2 a=666666667 b=-98322431
+thread number 3 a=-98322431 b=568344235
+master thread: now waiting for other threads...
+thread number 2 partialSum =0
+thread number 3 partialSum =Infinity
+thread number 1 partialSum =20.8950163934907
+total = Infinity
+real 3.29
+user 6.20
+sys 0.02
+nTerms=2000000000 nThreads=4
+thread number 1 a=1 b=500000001
+thread number 2 a=500000001 b=-73741823
+thread number 3 a=-73741823 b=426258177
+master thread: now waiting for other threads...
+thread number 4 a=426258177 b=-147483647
+thread number 2 partialSum =0
+thread number 4 partialSum =0
+thread number 3 partialSum =Infinity
+thread number 1 partialSum =20.6073343222888
+total = Infinity
+real 2.06
+user 3.88
+sys 0.03
