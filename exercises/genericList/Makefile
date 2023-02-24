@@ -1,10 +1,10 @@
 Out.txt: main.exe
-	mono $< 1> $@ 2> log
+	cat input.txt |mono $< 1> $@ 2> log
 main.exe: main.cs genlist.dll
-	mcs -target:exe -out$@\
-		$(addprefix -refrence:,$(filter %.dll,$^))
+	mcs $< -target:exe -out:$@\
+		$(addprefix -reference:,$(filter %.dll,$^))
 		$(filter %.cs,$^)
 genlist.dll: genlist.cs
-	mcs -target:library -out:$@ $<
+	mcs $< -target:library -out:$@
 clean:
 	-rm *.dll *.exe [Oo]ut.log

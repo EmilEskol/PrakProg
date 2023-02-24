@@ -1,6 +1,6 @@
 public class genlist<T>{
 	public T[] data;
-	public int size => data.length;
+	public int size => data.Length;
 	public T this[int i] => data[i];
 	public genlist(){ data = new T[0];}
 	public void add(T item){
