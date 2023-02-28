@@ -1,0 +1,10 @@
+set terminal svg
+set tics in
+set xlabel "x"
+set ylabel "erf(x)"
+set title "Error funtion"
+
+
+plot [0:3.5] [0:1.5] \
+	"erf.data" with lines lw 2,\
+	"erfTab.data" pt 9

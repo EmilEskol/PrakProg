@@ -2,10 +2,23 @@ set terminal svg
 set key left
 set output "gamma.svg"
 set xlabel "x"
+set xzeroaxis lt -1 lw 0.5
+set xtics axis
+
 set ylabel "y"
-set tics in
+set yzeroaxis lt -1 lw 0.5
+set ytics axis
+
 set title "Gamma function"
-plot [0:7][0:150]\
-	 "factorials.data" using ($1+1):($2) title "experiment", \
-	 "gamma.data" with lines
-	
+
+set arrow from 0  , graph 0 to 0, graph 1 nohead dashtype 2 lw 2 lc rgb 'blue'
+set arrow from -1 , graph 0 to -1, graph 1 nohead dashtype 2 lw 2 lc rgb 'blue'
+set arrow from -2 , graph 0 to -2, graph 1 nohead dashtype 2 lw 2 lc rgb 'blue'
+set arrow from -3 , graph 0 to -3, graph 1 nohead dashtype 2 lw 2 lc rgb 'blue'
+set arrow from -4 , graph 0 to -4, graph 1 nohead dashtype 2 lw 2 lc rgb 'blue'
+
+plot [-5:5][-5:5]\
+	 "factorials.data" using ($1+1):($2) title "experiment" ps 2, \
+	 "gamma.data" with lines lw 2 lc rgb 'red'
+
+
