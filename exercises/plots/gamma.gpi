@@ -1,0 +1,11 @@
+set terminal svg
+set key left
+set output "gamma.svg"
+set xlabel "x"
+set ylabel "y"
+set tics in
+set title "Gamma function"
+plot [0:7][0:150]\
+	 "factorials.data" using ($1+1):($2) title "experiment", \
+	 "gamma.data" with lines
+	
