@@ -1,0 +1,15 @@
+set terminal svg
+set key left
+set output "lngamma.svg"
+set xlabel "x"
+set ylabel "y"
+set tics in
+
+set title "Lngamma function"
+
+
+plot [0:16][0:30]\
+	 "lnfactorials.data" using ($1+1):($2) title "experiment" ps 2 pt 3 , \
+	 "lngamma.data" with lines lw 2 lc rgb 'red'
+
+

@@ -1,4 +1,4 @@
-task: erf.svg gamma.svg
+task: erf.svg gamma.svg lngamma.svg
 
 erf.svg: erf.gpi erf.data erfTab.data
 	gnuplot $< > $@
@@ -24,8 +24,19 @@ factorials.data:sfuns.dll
 	echo 2 2 >>$@
 	echo 3 6 >>$@
 
+lngamma.svg: lngamma.gpi lngamma.data lnfactorials.data
+	gnuplot $< > $@
+lngamma.data: main3.exe
+	mono $< >$@
+lnfactorials.data:lnfactorials.exe
+	mono $< > $@
+lnfactorials.exe:lnfactorials.cs
+	mcs $< -target:exe -out:$@
+main3.exe: main3.cs sfuns.dll
+	mcs $< -target:exe -out:$@ $(addprefix -reference:,$(filter %.dll,$^))
 
-sfuns.dll: erf.cs gamma.cs
+
+sfuns.dll: erf.cs gamma.cs lngamma.cs
 	mcs $^ -target:library -out:$@
 
 

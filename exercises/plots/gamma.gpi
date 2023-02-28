@@ -1,5 +1,5 @@
 set terminal svg
-set key left
+set key bottom
 set output "gamma.svg"
 set xlabel "x"
 set xzeroaxis lt -1 lw 0.5
@@ -20,5 +20,4 @@ set arrow from -4 , graph 0 to -4, graph 1 nohead dashtype 2 lw 2 lc rgb 'blue'
 plot [-5:5][-5:5]\
 	 "factorials.data" using ($1+1):($2) title "experiment" ps 2, \
 	 "gamma.data" with lines lw 2 lc rgb 'red'
-
 
