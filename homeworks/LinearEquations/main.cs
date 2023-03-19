@@ -9,7 +9,7 @@ static class main{
 		int returnCode=0;
 		bool test=true;
 		var rnd = new Random();
-		int maxInt = 4;
+		int maxInt = 5;
 		int n=rnd.Next(2,maxInt);
 		int m=rnd.Next(2,maxInt);
 		if(m>n){
@@ -39,7 +39,7 @@ static class main{
 		test=true;
 		
 		if(test){
-			Write("Testing if Q^T*Q=1");
+			Write("Testing if Q^T*Q=1...");
 			matrix Test=Q.T*Q;
 			for(int i=0;i<m;i++)
 				for(int j=0;j<m;j++)
@@ -60,7 +60,7 @@ static class main{
 		test=true;
 
 		if(test){
-			Write("Testing if Q*R=A");
+			Write("Testing if Q*R=A...");
 			matrix Test=Q*R;
 			for(int i=0;i<m;i++)
 				for(int j=0;j<m;j++)
@@ -74,7 +74,7 @@ static class main{
 			returnCode++;
 		}
 		test=true;
-
+		
 		A=new matrix(n,n);
 		vector b=new vector(n);
 		for(int i=0;i<n;i++){
@@ -82,20 +82,13 @@ static class main{
 			for(int j=0;j<n;j++)
 				A[i,j]=rnd.Next(maxInt*3);
 		}
-		A.print("A");
-		b.print("b");
 		(Q,R)=decomp(A);
 		vector x=solve(Q,R,b);
-
-		Q.print("Q:");
-		R.print("R:");
-		x.print("x:");
+		
 
 		if(test){
-			Write("Testing if A*x=b");
+			Write("Testing if A*x=b...");
 		vector Test=A*x;
-		Test.print("\n Test:");
-		b.print();
 			for(int i=0;i<m;i++)
 				if(!approx(Test[i],b[i]))
 					test=false;

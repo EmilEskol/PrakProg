@@ -19,14 +19,13 @@ public static class QRGS{
 	public static vector solve(matrix Q,matrix R, vector b){
 		int n=Q.size1;int m=Q.size2;
 		vector x=Q.T*b;
-		x.print("Q.T*b");
-		for(int i=0;i<n;i++){
+		for(int i=0;i<m;i++){
 			for(int j=0;j<i;j++){
-				x[n-i-1]-=x[n-j-1]*R[i,n-j-1];
-				WriteLine($"i,j={n-i},{n-j} x={x[n-j-1]} R={R[n-1-i,n-1-j]}");
+				x[m-i-1]-=x[m-j-1]*R[n-1-i,m-j-1];
+				//WriteLine($"i,j={n-i},{m-j} x*R={x[m-j-1]}*{R[n-1-i,m-1-j]}={x[m-j-1]*R[n-1-i,m-1-j]}");
 			}
-			WriteLine($"i={n-i}: R={R[n-1-i,n-1-i]}");
-			x[n-i-1]/=R[n-1-i,n-1-i];
+			//WriteLine($"i={n-i}:x={x[m-1-i]} R={R[n-1-i,m-1-i]}");
+			x[m-i-1]/=R[n-1-i,m-1-i];
 		}
 		return x;
 	}
