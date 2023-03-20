@@ -2,3 +2,4 @@ Testing if R is upper triangullar...Test passed
 Testing if Q^T*Q=1...Test passed
 Testing if Q*R=A...Test passed
 Testing if A*x=b...Test passed
+Testing if A*B=I...Test passed

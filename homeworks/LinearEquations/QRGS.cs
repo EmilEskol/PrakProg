@@ -38,6 +38,16 @@ public static class QRGS{
 		return det;
 	}
 	public static matrix inverse(matrix Q,matrix R){
-		return null;
+		int n=Q.size1;int m=Q.size2;
+		matrix B=new matrix(n,m);
+		vector e=new vector(m);
+		e[0]=1;
+		for(int i=0;i<m;i++){
+			B[i]=solve(Q,R,e);
+			e[i]=0;
+			if(i!=m-1)
+				e[i+1]=1;
+		}
+		return B;
 	}
 }

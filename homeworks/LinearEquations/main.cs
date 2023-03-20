@@ -100,6 +100,28 @@ static class main{
 			returnCode++;
 		}
 		test=true;
+		matrix B=inverse(Q,R);
+
+		if(test){
+			Write("Testing if A*B=I...");
+		matrix Test=A*B;
+			for(int i=0;i<m;i++)
+				for(int j=0;j<m;j++)
+					if(i==j){
+						if(!approx(Test[i,j],1))
+							test=false;
+					}
+					else
+						if(!approx(Test[i,j],0))
+							test=false;
+		}
+		if(test)
+			Write("Test passed\n");
+		else{
+			Write("Test failed\n");
+			returnCode++;
+		}
+		test=true;
 			
 		return returnCode;
 	}
