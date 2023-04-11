@@ -1,0 +1,20 @@
+A:
+
+      23.4      -23.4 
+        20        -40 
+      17.6      -52.8 
+        18        -72 
+      13.3      -79.5 
+      9.83      -88.5 
+       8.4        -84 
+       7.6      -98.8 
+      5.55      -83.3 
+Ordinary LS fit:
+      4.95       0.17 
+Covarriance matrix:
+
+   0.00115   0.000178 
+  0.000178   4.83e-05 
+The half time is 4.08004641904341 with an error of 0.166914715082983
+The modern value of the half time of 224Ra is 3.6 days
+, which doesn't agree with the data and error given 

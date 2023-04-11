@@ -1,0 +1,10 @@
+set terminal svg
+set key left
+set xlabel "time(days)"
+set ylabel "Activity of ThX"
+set tics in
+set title "Least sqaure fit plot"
+
+plot \
+	"ExpData.data" title "Experiment" with errorlines, \
+	"DataFit.data" with lines lw 2 lc rgb 'red' title "Fit"

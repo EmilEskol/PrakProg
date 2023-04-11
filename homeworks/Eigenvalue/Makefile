@@ -5,13 +5,14 @@ MKLIB = mcs $< -target:library -out:$@
 
 Out.txt: main.exe
 	mono $< > $@
-main.exe: main.cs matrix.dll QRGS.dll
+
+main.exe: main.cs matrix.dll EVD.dll
 	mcs $< -target:exe -out:$@ $(DLLS)
 
 matrix.dll: $(DIR)/matrix.cs $(DIR)/vector.cs
 	$(MKLIBF)
 
-QRGS.dll: QRGS.cs matrix.dll
+EVD.dll: EVD.cs matrix.dll
 	$(MKLIB) $(DLLS)
 
 clean:
