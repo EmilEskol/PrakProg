@@ -4,6 +4,10 @@ class main{
 	static int Main(string[] args){
 		int returnValue=0,i=0;
 		double[] x,y;
+		(x,y)=ReadXY(args);
+		return returnValue;
+	}
+	public static (double[],double[]) ReadXY(string[] args){
 		string infile=null,outfile=null;
 		foreach(var arg in args){
 			var words=arg.Split(":");
@@ -17,10 +21,17 @@ class main{
 		if(returnValue>0)
 			return returnValue;
 		var instream= new System.IO.StreamReader(infile);
-		
+
+		char[] splitDelimeters={' ','\t','\n'};
+		var splitOptions=StringSplitOptions.RemoveEmptyEntries;
+
+		int i=0;
 		for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){
-			(x[i],y[i])=double.Parse(line); //Virker ikke
+			double[] numbers = line.Split(splitDelimeters,splitOptions);
+			x[i]=numbers[0];
+			y[i]=numbers[1];
+			i++;
 		}
-		return returnValue;
+		return (x,y);
 	}
 }
