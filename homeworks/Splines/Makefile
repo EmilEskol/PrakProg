@@ -5,7 +5,7 @@ MKLIB = mcs $^ -target:library -out:$@
 MKEXE = mcs $< -target:exe -out:$@
 
 Out.txt: main.exe
-	mono $< > $@
+	mono $< -input:Input.txt > $@
 main.exe: main.cs Spline.dll
 	$(MKEXE) $(DLLS)
 Spline.dll: Spline.cs
@@ -13,4 +13,4 @@ Spline.dll: Spline.cs
 
 
 clean:
-	rm -f *.txt *.exe *.dll
+	rm -f Out.txt *.exe *.dll
