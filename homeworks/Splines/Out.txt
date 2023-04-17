@@ -1,20 +1,43 @@
-11
-22
-33
-44
-55
-66
-77
-88
-99
-1010
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
+0 0
+1 1
+2 2
+3 3
+4 4
+5 5
+6 6
+7 7
+8 8
+9 9
+10 10
+11 10
+12 9
+13 8
+14 7
+15 6
+16 9
+17 8
+z chosen to be 5.5
+y(z)=5.5
+Result=0.5 0 5
+Result=2 1 5
+Result=4.5 2 5
+Result=8 3 5
+Result=12.5 4 5
+and the area under the graf from 0 to z is 15.125
+New z at 14,7
+y(z)=6.3
+Result=0.5 0 14
+Result=2 1 14
+Result=4.5 2 14
+Result=8 3 14
+Result=12.5 4 14
+Result=18 5 14
+Result=24.5 6 14
+Result=32 7 14
+Result=40.5 8 14
+Result=50 9 14
+Result=60 10 14
+Result=69.5 11 14
+Result=78 12 14
+Result=85.5 13 14
+and the area under the graf from 0 to z is 90.155

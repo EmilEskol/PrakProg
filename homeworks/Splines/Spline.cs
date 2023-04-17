@@ -1,7 +1,7 @@
 using System;
 using static System.Console;
 
-class Spline{
+public class Spline{
 	public static double linterp(double[]x, double[] y, double z){
 		int i=binSearch(x,z);
 		double dx=x[i+1]-x[i]; 
@@ -27,9 +27,10 @@ class Spline{
 		int i=binSearch(x,z);
 		double result=0;
 		for(int j=0;j<i;j++){
-			result+=(y[i]+y[i+1])/2*(x[i+1]-x[i]);
+			result+=(y[j]+y[j+1])/2*(x[j+1]-x[j]);
+			WriteLine($"Result={result} {j} {i}");
 		}
-		result+=(y[i]+linterp(x,y,z))/2*(x[i+1]-x[i]);
+		result+=(y[i]+linterp(x,y,z))/2*(z-x[i]);
 		return result;
 	}
 }
