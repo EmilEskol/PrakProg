@@ -1,4 +1,5 @@
 using System;
+using static System.Console;
 using static System.Math;
 public class qSpline{
 	vector x,y,b,c;
@@ -7,14 +8,19 @@ public class qSpline{
 		n=xs.size;
 		x=xs.copy();
 		y=ys.copy();
+		WriteLine("safe1");
 		vector c1= new vector(n);
 		vector b1= new vector(n);
-		for(int i=1;i<n;i++){
-			c1[i]=(y[i]-y[i]-c[i-1]*(x[i]-x[i-1]))/(x[i]-x[i-1]);
-			b1[i]=y[i]-c[i]*(x[i+1]-x[i]);
+		WriteLine("safe2");
+		for(int i=1;i<n-1;i++){
+			c1[i]=(y[i]-y[i]-c1[i-1]*(x[i]-x[i-1]))/(x[i+1]-x[i]);
+			b1[i]=y[i]-c1[i]*(x[i+1]-x[i]);
+			WriteLine($"Safe3{i}");
 		}
 		c=c1;
+		WriteLine("Safe4");
 		b=b1;
+		
 	}
 	public double evaluate(double z){
 		int i=Spline.binSearch(x,z);

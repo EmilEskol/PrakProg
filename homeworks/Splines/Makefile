@@ -12,7 +12,7 @@ Out.txt: main.exe Data.data LineterpIntegTests.data LineterpTests.data
 	mono $< -input:Input.txt $(OUTPUTS) > $@
 main.exe: main.cs Spline.dll qSpline.dll matlib.dll
 	$(MKEXE) $(DLLS)
-matlib.dll: $(DIR)/IOputs.cs $(DIR)/matrix/vector.cs
+matlib.dll: $(DIR)/IOputs.cs $(DIR)/matrix/vector.cs $(DIR)/matrix/matrix.cs $(DIR)/genlist.cs
 	$(MKLIBF)
 Spline.dll: Spline.cs
 	$(MKLIB)

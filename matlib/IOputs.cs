@@ -1,5 +1,6 @@
 using System;
 using static System.Console;
+using static matrix;
 
 public static class IOputs{
 	public static (double[],double[]) ReadXY(string[] args){
@@ -46,6 +47,27 @@ public static class IOputs{
 		var outstream= new System.IO.StreamWriter(outfile);
 		for(int i=0;i<x.Length;i++)
 			outstream.WriteLine($"{x[i]} {y[i]}");
+		outstream.Close();
+	}
+	public static void WriteXY(string[] args,genlist<double> x,genlist<vector> y,string FileName){
+		string outfile=null;
+		foreach(var arg in args){
+			var words=arg.Split(":");
+			if(words[0]=="-output"&&words[1]==FileName){
+				outfile=words[1];
+			}
+		}
+		if(outfile==null){
+			Error.WriteLine("Wrong outputfilename");
+		}
+		
+		var outstream= new System.IO.StreamWriter(outfile);
+		for(int i=0;i<x.size;i++){
+			outstream.WriteLine($"{x[i]} ");
+			for(int j=0;j<y[i].size;j++){
+				outstream.Write($"{y[i][j]} ");
+			}
+		}
 		outstream.Close();
 	}
 }
