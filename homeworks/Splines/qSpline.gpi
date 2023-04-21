@@ -9,4 +9,7 @@ plot\
 	"qSpline1.data" title "q1" with lines,\
 	"qSpline2.data" title "q2" with lines,\
 	"qSpline3.data" title "q3" with lines,\
-	"qData.data" title "Data" with points
+	"qSpline4.data" title "q4" with lines,\
+	"qSpline4D.data" title "q4 derivative" with lines,\
+	"qSpline4I.data" title "q4 integral" with lines,\
+	"qData.data" title "Data" pt 1 with points

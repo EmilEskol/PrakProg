@@ -41,19 +41,24 @@ class main{
 		vector y1= new vector(10);
 		vector y2 = new vector(10);
 		vector y3 = new vector(10);
+		vector y4 = new vector(10);
 		for(int i=0;i<x.size;i++){
 			x[i]=i;
 			y1[i]=1;
 			y2[i]=x[i];
-			y3[i]=Pow(x[i],2);
+			y3[i]=0.1*Pow(x[i],2);
+			y4[i]=Cos(x[i]);
 		}
 		x.print("X:");
 		y1.print("y1:");
 		y2.print("y2:");
 		y3.print("y3:");
+		y4.print("y4:");
 		qSpline q1= new qSpline(x,y1);
 		qSpline q2= new qSpline(x,y2);
 		qSpline q3= new qSpline(x,y3);
+		qSpline q4= new qSpline(x,y4);
+		
 		WriteLine("The values are: ");
 		vector b1=q1.getb();
 		b1.print("b1:");
@@ -68,22 +73,32 @@ class main{
 		c2.print("c2:");
 		vector c3=q3.getc();
 		c3.print("c3:");
-		WriteLine("and should be");
-		(double[] xs1,double[] ys1)=q1.printData(5,20);
-		IOputs.WriteXY(args,xs1,ys1,"qSpline1.data");
-		(xs1,ys1)=q2.printData(5,20);
-		IOputs.WriteXY(args,xs1,ys1,"qSpline2.data");
-		(xs1,ys1)=q3.printData(5,20);
-		IOputs.WriteXY(args,xs1,ys1,"qSpline3.data");
+		vector c4=q4.getc();
+		c4.print("c4:");
 		
-		double[] xqData= new double[3*x.size];
-		double[] yqData= new double[3*x.size];
+		//Making a plot with q1,q2,q3,q4
+		(double[] xs1,double[] ys1)=q1.printData(20);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline1.data");
+		(xs1,ys1)=q2.printData(20);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline2.data");
+		(xs1,ys1)=q3.printData(20);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline3.data");
+		(xs1,ys1)=q4.printData(100);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline4.data");
+		(xs1,ys1)=q4.printDerivative(100);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline4D.data");
+		(xs1,ys1)=q4.printIntegral(100);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline4I.data");
+		
+		double[] xqData= new double[4*x.size];
+		double[] yqData= new double[4*x.size];
 		for(int i=0;i<x.size;i++){
-			for(int j=0;j<3;j++)
+			for(int j=0;j<4;j++)
 				xqData[j*x.size+i]=x[i];
 			yqData[i]=y1[i];
 			yqData[x.size+i]=y2[i];
 			yqData[2*x.size+i]=y3[i];
+			yqData[3*x.size+i]=y4[i];
 		}
 		IOputs.WriteXY(args,xqData,yqData,"qData.data");
 		
