@@ -8,10 +8,9 @@ using static vector;
 class main{
 	static int Main(string[] args){
 		int returnValue=0;
+		//Linear spline
 		double[] xs,ys;
 		(xs,ys)=IOputs.ReadXY(args);
-		for(int i=0;i<xs.Length;i++)
-			WriteLine($"{xs[i]} {ys[i]}");
 		IOputs.WriteXY(args,xs,ys,"Data.data");
 		WriteLine("z chosen to be 5.5");
 		double z=5.5;
@@ -36,15 +35,22 @@ class main{
 		for(int i=0;i<xzs1.Length;i++)
 			yzs1[i]=linterp(xs,ys,xzs1[i]);
 		IOputs.WriteXY(args,xzs1,yzs1,"LineterpTests.data");
-		vector x= new vector("1 2 3 4 5");
-		vector y1= new vector(5);
-		vector y2 = new vector(5);
-		vector y3 = new vector(5);
+
+		//Qaudratic spline
+		vector x= new vector(10);
+		vector y1= new vector(10);
+		vector y2 = new vector(10);
+		vector y3 = new vector(10);
 		for(int i=0;i<x.size;i++){
+			x[i]=i;
 			y1[i]=1;
 			y2[i]=x[i];
 			y3[i]=Pow(x[i],2);
 		}
+		x.print("X:");
+		y1.print("y1:");
+		y2.print("y2:");
+		y3.print("y3:");
 		qSpline q1= new qSpline(x,y1);
 		qSpline q2= new qSpline(x,y2);
 		qSpline q3= new qSpline(x,y3);
@@ -63,6 +69,24 @@ class main{
 		vector c3=q3.getc();
 		c3.print("c3:");
 		WriteLine("and should be");
+		(double[] xs1,double[] ys1)=q1.printData(5,20);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline1.data");
+		(xs1,ys1)=q2.printData(5,20);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline2.data");
+		(xs1,ys1)=q3.printData(5,20);
+		IOputs.WriteXY(args,xs1,ys1,"qSpline3.data");
+		
+		double[] xqData= new double[3*x.size];
+		double[] yqData= new double[3*x.size];
+		for(int i=0;i<x.size;i++){
+			for(int j=0;j<3;j++)
+				xqData[j*x.size+i]=x[i];
+			yqData[i]=y1[i];
+			yqData[x.size+i]=y2[i];
+			yqData[2*x.size+i]=y3[i];
+		}
+		IOputs.WriteXY(args,xqData,yqData,"qData.data");
+		
 		return returnValue;
 	}
 }

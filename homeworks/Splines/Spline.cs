@@ -1,5 +1,4 @@
 using System;
-using static System.Console;
 
 public class Spline{
 	public static double linterp(double[]x, double[] y, double z){
@@ -28,7 +27,6 @@ public class Spline{
 		double result=0;
 		for(int j=0;j<i;j++){
 			result+=(y[j]+y[j+1])/2*(x[j+1]-x[j]);
-			WriteLine($"Result={result} {j} {i}");
 		}
 		result+=(y[i]+linterp(x,y,z))/2*(z-x[i]);
 		return result;

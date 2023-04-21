@@ -1,0 +1,12 @@
+set terminal svg
+set key left
+set xlabel "X"
+set ylabel "Y"
+set tics in
+set title "qSplines plot"
+
+plot\
+	"qSpline1.data" title "q1" with lines,\
+	"qSpline2.data" title "q2" with lines,\
+	"qSpline3.data" title "q3" with lines,\
+	"qData.data" title "Data" with points

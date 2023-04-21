@@ -8,17 +8,25 @@ public class qSpline{
 		n=xs.size;
 		x=xs.copy();
 		y=ys.copy();
-		WriteLine("safe1");
 		vector c1= new vector(n);
 		vector b1= new vector(n);
-		WriteLine("safe2");
-		for(int i=1;i<n-1;i++){
-			c1[i]=(y[i]-y[i]-c1[i-1]*(x[i]-x[i-1]))/(x[i+1]-x[i]);
-			b1[i]=y[i]-c1[i]*(x[i+1]-x[i]);
-			WriteLine($"Safe3{i}");
+		for(int i=1;i<n-2;i++){
+			c1[i]=((y[i+1]-y[i])/(x[i+1]-x[i])-(y[i]-y[i-1])/(x[i]-x[i-1])-c1[i-1]*(x[i]-x[i-1]))/(x[i+1]-x[i]);
 		}
-		c=c1;
-		WriteLine("Safe4");
+		for(int i=0;i<n-1;i++){
+			b1[i]=(y[i+1]-y[i])/(x[i+1]-x[i])-c1[i]*(x[i+1]-x[i]);
+		}
+		vector c2= new vector(n);
+		vector b2= new vector(n);
+		for(int i=n-3;i>=0;i--){
+			c2[i]=((y[i+2]-y[i+1])/(x[i+2]-x[i+1])-(y[i+1]-y[i])/(x[i+1]-x[i])-c2[i+1]*(x[i+2]-x[i+1]))/(x[i+1]-x[i]);
+		}
+		for(int i=0;i<n-1;i++){
+			b2[i]=(y[i+1]-y[i])/(x[i+1]-x[i])-c2[i]*(x[i+1]-x[i]);
+		}
+		c2.print("c2");
+		c1.print("c1");
+		c=c1/2+c2/2;
 		b=b1;
 		
 	}
@@ -39,5 +47,19 @@ public class qSpline{
 	}
 	public vector getc(){
 		return c;
+	}
+	public (double[],double[]) printData(double z,int m){
+			int size=n*m;
+			double step;
+			double[] xData = new double[size];
+			double[] yData = new double[size];
+			for(int i=0;i<n-1;i++){
+				for(int j=0;j<m;j++){
+					step=j*(x[i+1]-x[i])/n;
+					xData[m*i+j]=x[i]+step;
+					yData[m*i+j]=y[i]+b[i]*step+c[i]*step*step;
+				}
+			}
+		return (xData,yData);
 	}
 }
