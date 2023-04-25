@@ -1,0 +1,11 @@
+set terminal svg
+set xlabel "t" font ",16"
+set key bottom right
+set tics in
+set ytics 2
+set title "ODE scipy example recreated" font ",20"
+set grid ls 1 lt rgb "grey"
+
+plot[-0.5:10.5][-4.2:3.9]\
+	"scipyPlot.data" using 1:2 title "theta(t)" with lines lt rgb "green" lw 3,\
+	"scipyPlot.data" using 1:3 title "omega(t)" with lines lt rgb "blue" lw 3

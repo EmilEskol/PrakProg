@@ -63,10 +63,11 @@ public static class IOputs{
 		
 		var outstream= new System.IO.StreamWriter(outfile);
 		for(int i=0;i<x.size;i++){
-			outstream.WriteLine($"{x[i]} ");
+			outstream.Write($"{x[i]} ");
 			for(int j=0;j<y[i].size;j++){
 				outstream.Write($"{y[i][j]} ");
 			}
+			outstream.WriteLine();
 		}
 		outstream.Close();
 	}

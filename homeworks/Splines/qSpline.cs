@@ -25,8 +25,8 @@ public class qSpline{
 		for(int i=0;i<n-1;i++){
 			b2[i]=(y[i+1]-y[i])/(x[i+1]-x[i])-c2[i]*(x[i+1]-x[i]);
 		}
-		c2.print("c2");
-		c1.print("c1");
+		//c2.print("c2");
+		//c1.print("c1");
 		c=c1/2+c2/2;
 		b=b1/2+b2/2;
 		

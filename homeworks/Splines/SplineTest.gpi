@@ -1,11 +1,11 @@
 set terminal svg
-set key left
-set xlabel "X"
-set ylabel "Y"
+set key bottom right
+set xlabel "x" font ",16"
+set ylabel "y" font ",16"
 set tics in
-set title "Splines plot"
+set title "Linear splines plot" font ",20"
 
 plot[-0.3:20][0:11] \
-	"Data.data" title "Data" with linespoints, \
-	"LineterpIntegTests.data" pt 2 lw 6 lc rgb 'red' title "Lineterp Integ tests",\
-	"LineterpTests.data" pt 2 lw 6 lc rgb 'blue' title "Lineterp tests"
+	"Data.data" title "Chosen Data" with linespoints, \
+	"LineterpIntegTests.data" pt 2 lw 6 lc rgb 'red' title "Linear terpulation integral test points",\
+	"LineterpTests.data" pt 2 lw 6 lc rgb 'blue' title "Linear terpulation test points"

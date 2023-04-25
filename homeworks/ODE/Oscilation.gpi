@@ -6,4 +6,5 @@ set tics in
 set title "ODE test u''=-u
 
 plot \
-	"Oscilation.data" title "Solution" with linespoints
+	"Oscilation.data" using 1:2 title "Solution u" with linespoints,\
+	"Oscilation.data" using 1:3 title "Solution u'" with linespoints

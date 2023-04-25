@@ -7,7 +7,7 @@ MKEXE = mcs $< -target:exe -out:$@
 MKDATA = mono $< > $@
 DATA = Data.data LineterpIntegTests.data LineterpTests.data
 OUTPUTS=$(addprefix -output:,$(filter %.data,$(DATA)))
-DATA2 = qSpline1.data qSpline2.data qSpline3.data qSpline4.data qSpline4D.data qSpline4I.data qData.data
+DATA2 = qSpline4.data qSpline4D.data qSpline4I.data qData.data
 OUTPUTS2=$(addprefix -output:,$(filter %.data,$(DATA2)))
 
 Task: Out.txt SplineTest.svg qSpline.svg
@@ -26,11 +26,11 @@ Spline.dll: Spline.cs
 qSpline.dll:qSpline.cs Spline.dll matlib.dll
 	$(MKLIB) $(DLLS)
 
-SplineTest.svg: SplineTest.gpi Data.data LineterpIntegTests.data LineterpTests.data
+SplineTest.svg: SplineTest.gpi $(Data)
 	gnuplot $< > $@
 
 
-qSpline.svg:qSpline.gpi qSpline1.data qSpline2.data qSpline3.data
+qSpline.svg:qSpline.gpi $(DATA2)
 	gnuplot $< > $@
 
 $(DATA) $(DATA2): main.exe
