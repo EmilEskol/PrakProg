@@ -1,3 +1,0 @@
-yb for u''=-u at b={b}    -0.969    -0.0279 
-yb for scipy exampel 1 at b={b}    0.0279       1.52 
-yb for Lotka-Volterra System at b={b}     0.571     0.0867 
