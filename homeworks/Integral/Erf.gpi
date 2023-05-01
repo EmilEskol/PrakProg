@@ -1,0 +1,9 @@
+set terminal svg enhanced background rgb 'white'
+set key left
+set xlabel "x" font ",16"
+set tics in
+set title "Error function via its integral representation" font ",20"
+
+plot[-5:5][-2:2] \
+	"Erf.data" title "Error function" with lines, \
+	"erfTab.data" title "Tabulated values" pt 2
