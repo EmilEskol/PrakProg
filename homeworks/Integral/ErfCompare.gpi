@@ -1,0 +1,10 @@
+set terminal svg enhanced background rgb 'white'
+set key
+set xlabel "x" font ",16"
+set ylabel "absolut deviation from tabulated values"
+set tics in
+set title "Residuals of error function via its integral\n representation and estimation from plot exercise" font ",20"
+
+plot[-0.2:3.7] \
+	"ErfCompare1.data" title "Integral representation" pt 2, \
+	"ErfCompare2.data" title "Data from plot exercise" pt 1

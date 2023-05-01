@@ -2,11 +2,12 @@ DIR = ../../matlib
 MKLIB = mcs $(filter %.cs,$^) -target:library -out:$@
 MKEXE = mcs $< -target:exe -out:$@
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
-Data = Erf.data
-OUTPUTS = $(addprefix -output:,$(filter %.data,$(Data)))
+Data = Erf.data erfTab.data
+Data2 = ErfCompare1.data ErfCompare2.data
+OUTPUTS = $(addprefix -output:,$(filter %.data,$(Data) $(Data2)))
 
 
-Task: Out.txt Erf.svg
+Task: Out.txt Erf.svg ErfCompare.svg
 
 Out.txt: main.exe
 	mono $< $(OUTPUTS) > $@
@@ -17,13 +18,14 @@ matlib.dll: $(DIR)/IOputs.cs $(DIR)/matrix/matrix.cs $(DIR)/matrix/vector.cs $(D
 Integ.dll: Integ.cs
 	$(MKLIB)
 
-Erf.svg:Erf.gpi $(Data) erfTab.data
+Erf.svg:Erf.gpi $(Data)
 	gnuplot $< > $@
-erfTab.data: erfTab.exe
-	mono $< > $@
-erfTab.exe: ../../exercises/plots/erfTabData.cs
-	mcs $< -target:exe -out:$@
-$(Data):
+
+
+ErfCompare.svg:ErfCompare.gpi $(Data2)
+	gnuplot $< > $@
+
+$(Data) $(Data2):
 
 clean:
 	rm -f Out.txt *.svg *.dll *.exe *.data
