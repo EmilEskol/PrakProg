@@ -1,0 +1,12 @@
+set terminal svg enhanced background rgb 'white'
+set key
+set logscale x 10
+set xlabel "N" font ",16"
+set ylabel "Error of function"
+set tics in
+set title "Unit cirle area error calculation" font ",20"
+
+plot[4:10000000][-0.1:0.75] \
+	"ReelErr.data" title "Real Error" pt 2, \
+	"EstErr.data" title "Estimate" pt 1, \
+	"val.data" title "1/Sqrt(N)" with lines 

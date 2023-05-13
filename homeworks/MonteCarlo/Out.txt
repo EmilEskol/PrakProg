@@ -1,0 +1,10 @@
+Setup for unit sphere
+a=         0          0 
+b=         1       6.28 
+f(x)=x^2+y^2 and the result is 3.14321367343012 +- 0.00574981822609104
+and it should be 3.14159265358979
+Calculating (1-cos(x)*cos(y)*cos(z))^-1
+a=         0          0          0 
+b=      3.14       3.14       3.14 
+f(x)=x^2+y^2 and the result is 1.38685088973772 +- 0.0082420998924176
+and it should be 1.39320393
