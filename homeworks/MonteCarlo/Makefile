@@ -1,12 +1,13 @@
 DIR = ../../matlib
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 Data = ReelErr.data EstErr.data val.data
-OUTPUTS = $(addprefix -output:,$(filter %.data,$(Data)))
+Data2 = plainErr.data quasiErr.data val.data
+OUTPUTS = $(addprefix -output:,$(filter %.data,$(Data) $(Data2)))
 MKLIBF = mcs $(filter %.cs,$^) -target:library -out:./$@
 MKLIB = mcs $(filter %.cs,$^) -target:library -out:$@
 MKEXE = mcs $< -target:exe -out:$@
 
-Task: Out.txt 2Dplot.svg
+Task: Out.txt partAplot.svg partBplot.svg
 
 Out.txt: main.exe
 	mono $< $(OUTPUTS) > $@
@@ -20,5 +21,10 @@ IOput.dll:$(DIR)/IOputs.cs matlib.dll
 monteCarlo.dll: monteCarlo.cs matlib.dll
 	$(MKLIB) $(DLLS)
 
-2Dplot.svg: 2Dplot.gpi $(Data)
+partAplot.svg: 2Dplot.gpi $(Data)
 	gnuplot $< > $@
+partBplot.svg: partBplot.gpi $(Data2)
+	gnuplot $< > $@
+
+clean:
+	rm -f *.svg *.dll *.exe Out.txt
