@@ -1,7 +1,31 @@
 ===========Part a============
-f(x)=         -1         -3 
-x1=          1          1 
 Finding root in f(x)=x^2-2 from 
-Guess:          1          1 
-A root is at       1.41          2 
-And has value   -0.00316   -0.00949 
+Guess:      -2.77         -2 
+A root is at         -1         -2 
+And has value    0.00944          0 
+Finding root in f(x)=x^2-2 from 
+Guess:       2.12     -0.462 
+A root is at          1         -2 
+And has value   8.73e-05   4.28e-07 
+Finding extremum of the Rosenbrocks valley function 
+The derivative is f'(x)=-2*(1-x)-400*x*(y-x^2),200*(y-x^2)
+Guess 0:       1.43       2.93 
+A root is at          1          1 
+And the derivative has the value   1.25e-05  -4.81e-06 
+the functions value at this point is 2.14877131623648E-12
+Guess 1:      -1.34       1.81 
+A root is at          1          1 
+And the derivative has the value   1.19e-06  -8.38e-07 
+the functions value at this point is 6.15392493110255E-14
+Guess 2:       1.34       2.24 
+A root is at          1          1 
+And the derivative has the value   8.59e-06  -3.26e-06 
+the functions value at this point is 1.10648943465532E-12
+Guess 3:       1.49       2.74 
+A root is at          1          1 
+And the derivative has the value   1.75e-05  -6.81e-06 
+the functions value at this point is 3.90530787628923E-12
+Guess 4:       1.47       2.99 
+A root is at          1          1 
+And the derivative has the value   1.54e-05  -5.97e-06 
+the functions value at this point is 3.1227852354484E-12
