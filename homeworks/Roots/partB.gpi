@@ -1,0 +1,10 @@
+set terminal svg enhanced background rgb 'white'
+set key
+set xlabel "r" font ",16"
+set ylabel "Psi" font ",16"
+set tics in
+set title "Numerical solution to groundstate of hydrogen" font ",20"
+
+plot[-0.1:9.1][-0.005:] \
+	"Solution.data" title "Groundstate solution" with lines, \
+	"Estimate.data" using 1:2 title "Wavefunction estimate" pt 1

@@ -1,0 +1,10 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "eps (log2)" font ",16"
+set logscale x 2
+set ylabel "Deviation from E_0" font ",16"
+set tics in
+set title "Convergence of aps in groundstate of hydrogen" font ",20"
+
+plot \
+	"ConEps.data" title "Groundstate solution" with linespoints

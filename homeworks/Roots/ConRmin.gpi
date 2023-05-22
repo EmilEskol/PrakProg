@@ -1,0 +1,10 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "rmin (log2)" font ",16"
+set logscale x 2
+set ylabel "Deviation from E_0" font ",16"
+set tics in
+set title "Convergence of rmin in groundstate of hydrogen" font ",20"
+
+plot \
+	"ConRmin.data" title "Groundstate solution" with linespoints

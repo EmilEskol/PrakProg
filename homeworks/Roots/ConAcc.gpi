@@ -1,0 +1,12 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "acc" font ",16"
+set logscale x 10
+set logscale y 2
+set format x "%g"
+set ylabel "Deviation from E_0 (log2)" font ",16"
+set tics in
+set title "Convergence of acc in groundstate of hydrogen (log10)" font ",20"
+
+plot \
+	"ConAcc.data" title "Groundstate solution" with linespoints

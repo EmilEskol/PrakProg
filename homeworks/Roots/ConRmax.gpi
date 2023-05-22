@@ -1,0 +1,9 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "rmax" font ",16"
+set ylabel "Deviation from E_0" font ",16"
+set tics in
+set title "Convergence of rmax in groundstate of hydrogen" font ",20"
+
+plot \
+	"ConRmax.data" title "Groundstate solution" with linespoints

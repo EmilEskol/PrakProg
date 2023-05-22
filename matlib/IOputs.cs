@@ -49,6 +49,23 @@ public static class IOputs{
 			outstream.WriteLine($"{x[i]} {y[i]}");
 		outstream.Close();
 	}
+	public static void WriteXY(string[] args,double[] x,int[] y,string FileName){
+		string outfile=null;
+		foreach(var arg in args){
+			var words=arg.Split(":");
+			if(words[0]=="-output"&&words[1]==FileName){
+				outfile=words[1];
+				}
+		}
+		if(outfile==null){
+			Error.WriteLine("Wrong outputfilename");
+		}
+		
+		var outstream= new System.IO.StreamWriter(outfile);
+		for(int i=0;i<x.Length;i++)
+			outstream.WriteLine($"{x[i]} {y[i]}");
+		outstream.Close();
+	}
 	public static void WriteXY(string[] args,genlist<double> x,genlist<vector> y,string FileName){
 		string outfile=null;
 		foreach(var arg in args){
