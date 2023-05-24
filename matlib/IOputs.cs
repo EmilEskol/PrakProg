@@ -88,4 +88,23 @@ public static class IOputs{
 		}
 		outstream.Close();
 	}
+	public static void WriteXY(string[] args,genlist<double> x,genlist<double> 
+		y,genlist<double> err,string FileName){
+		string outfile=null;
+		foreach(var arg in args){
+			var words=arg.Split(":");
+			if(words[0]=="-output"&&words[1]==FileName){
+				outfile=words[1];
+			}
+		}
+		if(outfile==null){
+			Error.WriteLine("Wrong outputfilename");
+		}
+		
+		var outstream= new System.IO.StreamWriter(outfile);
+		for(int i=0;i<x.size;i++){
+			outstream.WriteLine($"{x[i]} {y[i]} {err[i]}");
+		}
+		outstream.Close();
+	}
 }
