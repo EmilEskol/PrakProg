@@ -20,23 +20,23 @@ public static class Minimi{
 			delX=-B*grade;
 			lambda=1;
 			fx=f(x);
-			while(f(x+lambda*delX)>(1-lambda/2)*fx &&  lambda>Pow(2,-15)){
+			while(f(x+lambda*delX)>(1-lambda/2)*fx &&  lambda>Pow(2,-9)){
 				lambda/=2;
 			}
-			if(lambda>Pow(2,-15)){
+			if(lambda>Pow(2,-9)){
 				s=lambda*delX;
 				y=gradian(f,x+s)-grade;
 				for(int i=0;i<dim;i++)
 					u[i,0]=(s-B*y)[i];
-				uTy=(u*y)[0];
-				if(uTy>Pow(10,-6)){
+				uTy=(u.T*y)[0];
+				if(Abs(uTy)>Pow(10,-6)){
 					delB=(u*u.T)/uTy;
 					B=B+delB;
 				}
 			}
-			else
+			else{
 				B.set_unity();
-			
+			}			
 			x += lambda*delX;
 			grade=gradian(f,x);
 			i++;

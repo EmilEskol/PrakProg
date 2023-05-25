@@ -13,6 +13,11 @@ public class main{
 	static Func<vector,double> f;
 		
 	public static void Main(string[] args){
+		PartA(args);
+		PartB(args);
+	}
+
+	public static void PartA(string[] args){
 		WriteLine("=========Part a============");
 		WriteLine("Finding minimum of x^2 + y^2");
 		f = x => x[0]*x[0]+x[1]*x[1];
@@ -38,9 +43,11 @@ public class main{
 		result=qnewton(f,start,acc);
 		result.print("A minimum of HimmelBlau's function is at ");
 		WriteLine($"and the value is {f(result)}");
-
+	}
+	public static void PartB(string[] args){
 		WriteLine("=========Part b=============");
 		WriteLine("Finding the mass and the experimetnal width of the Higgs boson");
+		//Reading the data to genriclists
 		var options = StringSplitOptions.RemoveEmptyEntries;
 		var separators = new char[] {' ','\t'};
 		do{
@@ -51,25 +58,39 @@ public class main{
 		        signal.add(double.Parse(words[1]));
 		        error .add(double.Parse(words[2]));
 		}while(true);
-		IOputs.WriteXY(args,energy,signal,error,"MeasHiggs.data");
+		IOputs.WriteXY(args,energy,signal,error,"measHiggs.data");
 		//Start guass scale factor (A)=1,mass (a)=0.1,width (gamma)=0.1
-		start=new vector(1,120,5);
+		start=new vector(10,120,5);
+		start.print("Start value ");
 		acc=0.01;
-		result=qnewton(f,start,acc);
-		WriteLine($"The value at the minimum is {diff(result)}");
-		WriteLine($"the found mass is {result[1]} and the width is {result[2]}");
 		vector x1=new vector(4);
 		double[] val=new double[200];
 		double[] ener=new double[200];
+		f= x=> x[1]/(Pow(x[0]-x[2],2)+x[3]*x[3]/4);
+
 		for(int j=1;j<4;j++){
-				x1[j]=result[j-1];
+				x1[j]=start[j-1];
 			}
-		for(int i=0;i>200;i++){
+		for(int i=0;i<200;i++){
 			ener[i]=100+6.0/20*i;
 			x1[0]=ener[i];
 			val[i]=f(x1);
 		}
-		IOputs.WriteXY(args,ener,val,"FitHiggs.data");
+		IOputs.WriteXY(args,ener,val,"guessHiggs.data");
+		
+		result=qnewton(diff,start,acc);
+		result.print("Result : ");
+		WriteLine($"The value at the minimum is {diff(result)}");
+		WriteLine($"the found mass is {result[1]} GeV/c^2 and the width is {result[2]}");
+		for(int j=1;j<4;j++){
+				x1[j]=result[j-1];
+			}
+		for(int i=0;i<200;i++){
+			ener[i]=100+6.0/20*i;
+			x1[0]=ener[i];
+			val[i]=f(x1);
+		}
+		IOputs.WriteXY(args,ener,val,"fitHiggs.data");
 		
 	}
 	public static double diff(vector guess){

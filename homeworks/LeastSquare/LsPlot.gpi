@@ -1,4 +1,4 @@
-set terminal svg
+set terminal svg enhanced background rgb 'white'
 set key left
 set xlabel "time(days)"
 set ylabel "Activity of ThX"

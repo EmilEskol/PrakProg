@@ -1,12 +1,12 @@
 DIR = ../../matlib
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
-Data = MeasHiggs.data FitHiggs.data
+Data = measHiggs.data fitHiggs.data guessHiggs.data
 OUTPUTS = $(addprefix -output:,$(filter %.data,$(Data)))
 MKLIBF = mcs $(filter %.cs,$^) -target:library -out:./$@
 MKLIB = mcs $(filter %.cs,$^) -target:library -out:$@
 MKEXE = mcs $< -target:exe -out:$@
 
-Task: Out.txt
+Task: Out.txt partBplot.svg
 
 Out.txt: main.exe
 	mono $<  < higgs.data.txt $(OUTPUTS) > $@

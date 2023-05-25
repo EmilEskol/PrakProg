@@ -1,0 +1,11 @@
+set terminal svg enhanced background rgb 'white'
+set key
+set xlabel "Energy (GeV)"
+set ylabel "Signal (certain units)"
+set tics in
+set title "Fit of Higgs data using minimisation"
+
+plot \
+	"measHiggs.data" title "Experiment" with errorlines, \
+	"fitHiggs.data" with lines lw 2 lc rgb 'red' title "Fit",\
+	"guessHiggs.data" with lines lw 2 lc rgb 'blue' title "Guess"
