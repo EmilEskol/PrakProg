@@ -1,0 +1,11 @@
+set terminal svg enhanced background rgb 'white'
+set key
+set xlabel "x"
+set ylabel "f(x)"
+set tics in
+set title "Estimate of f(x)=x^2 with ANN"
+
+plot \
+	"valPartA.data" with lines lw 2 lc rgb 'red' title "function",\
+	"ANNresPartA.data" with lines lw 2 lc rgb 'blue' title "ANN response",\
+	"ANNresPartA1.data" with lines lw 2 lc rgb 'green' title "ANN response before training"
