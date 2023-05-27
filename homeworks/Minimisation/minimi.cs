@@ -20,7 +20,7 @@ public static class Minimi{
 			delX=-B*grade;
 			lambda=1;
 			fx=f(x);
-			while(f(x+lambda*delX)>(1-lambda/2)*fx &&  lambda>Pow(2,-9)){
+			while(f(x+lambda*delX)>fx &&  lambda>Pow(2,-9)){
 				lambda/=2;
 			}
 			if(lambda>Pow(2,-9)){
@@ -48,6 +48,8 @@ public static class Minimi{
 		vector result=new vector(dim);
 		for(int i=0;i<dim;i++){
 			double dx=Abs(x1[i])*Pow(2,-26);
+			if(dx==0);
+				dx=Pow(2,-26);
 			vector xi=x1.copy();
 			xi[i]+=dx;
 			result[i]=(f(xi)-f(x1))/dx;

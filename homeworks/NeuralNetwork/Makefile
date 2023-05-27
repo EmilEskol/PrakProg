@@ -1,6 +1,6 @@
 DIR = ../../matlib
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
-Data = valPartA.data ANNresPartA.data ANNresPartA1.data
+Data = valPartA.data ANNresPartA.data ANNresPartA1.data ANNresPartA2.data
 OUTPUTS = $(addprefix -output:,$(filter %.data,$(Data)))
 MKLIBF = mcs $(filter %.cs,$^) -target:library -out:./$@
 MKLIB = mcs $(filter %.cs,$^) -target:library -out:$@
@@ -18,7 +18,7 @@ matlib.dll: $(DIR)/matrix/*.cs $(DIR)/genlist.cs
 	$(MKLIBF)
 IOput.dll:$(DIR)/IOputs.cs matlib.dll
 	$(MKLIBF) $(DLLS)
-ANN.dll: ANN.cs matlib.dll
+ANN.dll: ANN.cs matlib.dll IOput.dll
 	$(MKLIB) $(DLLS)
 
 partAplot.svg: partA.gpi $(Data)

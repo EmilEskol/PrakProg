@@ -5,7 +5,7 @@ using static matrix;
 
 public static class Minimi{
 	static int dim,i;
-	static double fx,lambda,uTy;
+	static double fx,lambda,uTy,minfx;
 	static vector grade,x,y,delX,s;
 	static matrix B,delB,u;
 	
@@ -14,18 +14,19 @@ public static class Minimi{
 		x=start.copy();
 		B=id(dim);
 		grade=gradian(f,x);
-		grade.print("grade begnning ");
+		grade.print($"norm= {grade.norm()} grade begnning");
 		u=new matrix(dim,1);
 		i=0;
+		fx=f(x);
+		minfx=10;
 		do{
 			delX=-B*grade;
 			lambda=1;
-			fx=f(x);
-			while(f(x+lambda*delX)>(1-lambda/2)*fx &&  lambda>Pow(2,-9)){
+			while(f(x+lambda*delX)>fx &&  lambda>Pow(2,-13)){
 				lambda/=2;
 			}
-			if(lambda>Pow(2,-9)){
-				WriteLine($"step nr {i} f(x) = {fx}, grade={grade.norm()} ");
+			if(lambda>Pow(2,-13)){
+				//WriteLine($"step nr {i} f(x) = {fx}, grade={grade.norm()} ");
 				s=lambda*delX;
 				y=gradian(f,x+s)-grade;
 				for(int i=0;i<dim;i++)
@@ -42,9 +43,23 @@ public static class Minimi{
 			x += lambda*delX;
 			grade=gradian(f,x);
 			i++;
-			//WriteLine($"{i} {f(x)}");
+			fx=f(x);
+
+			//Info gatheret between runs
+			if(i%5000==0){
+				WriteLine($"i= {i} f(x)= {fx}, grade={grade.norm()}");
+				x.print("");
+			}
+			if(minfx>=fx){
+				x.print($"f(x)={fx}, grade= {grade.norm()}, x=");
+				minfx=fx;
+			}
+			if(i>=30000){
+				WriteLine($"f(x) = {fx}. The gradian of the last step (step nr {i}) is {grade.norm()} and process failed");
+				return x;
+			}	
 		}while(grade.norm()>acc);
-		grade.print($"f(x) = {f(x)}. The gradian of the last step (step nr {i}) is ");
+		WriteLine($"f(x) = {f(x)}. The gradian of the last step (step nr {i}) is {grade.norm()} ");
 		return x;
 	}
 	public static vector gradian(Func<vector,double> f,vector x1){

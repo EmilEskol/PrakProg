@@ -15,48 +15,57 @@ public class main{
 
 	public static void PartA(string[] args){
 		WriteLine("=========Part a============");
-		WriteLine("Training ANN on x^2");
+		WriteLine("Training ANN on ");
 		f = x => Cos(5*x-1)*Exp(-x*x);
-		int nr=5000;
-		var rnd =new Random();
+		int nr=100;
+		//var rnd =new Random();
 		x= new vector(nr);
 		y= new vector(nr);
 		
 		for(int i=0;i<nr;i++){
 			//x[i]=rnd.NextDouble()*2-1;
-			x[i]=2.0/nr*i-1;
+			x[i]=4.0/nr*i-2;
 			y[i]=f(x[i]);
 		}
+		vector p=new vector("0.462 -0.383 1.82 -0.69 0.381 -1.4 -0.0528 1.21 0.315");
+
+
 		var ANN1 = new ANN(3);
-		ANN1.getP().print("P = ");
-		nr=200;
+		
+		nr=1000;
+		y=new vector(nr);
 		y1=new vector(nr);
 		x=new vector(nr);
 		for(int i=0;i<nr;i++){
-			x[i]=2.0/nr*i-1;
-			y1[i]=ANN1.response(x[i]);
+			x[i]=10.0/nr*i-5;
+			y[i]=f(x[i]);
+			y1[i]=ANN.StResponse(x[i]);
+
 		}
 		IOputs.WriteXY(args,x,y1,"ANNresPartA1.data");
+		IOputs.WriteXY(args,x,y,"valPartA.data");
 
-		
-		WriteLine($"Early response: x=0 {ANN1.response(0)}");
-		Write($"and x=1 {ANN1.response(1)}");
-		Write($"and x=-1 {ANN1.response(-1)} \n");
+
 
 		ANN1.train(x,y);
 
-		ANN1.getP().print("found P ");
 		nr=200;
 		y1=new vector(nr);
 		y=new vector(nr);
 		x=new vector(nr);
 		for(int i=0;i<nr;i++){
-			x[i]=2.0/nr*i-1;
+			x[i]=8.0/nr*i-4;
 			y[i]=f(x[i]);
-			y1[i]=ANN1.response(x[i]);
+			y1[i]=ANN.StResponse(x[i]);
 		}
-		IOputs.WriteXY(args,x,y,"valPartA.data");
 		IOputs.WriteXY(args,x,y1,"ANNresPartA.data");
+		p=new vector("0.462 -0.383 1.82 -0.69 0.381 -1.4 -0.0528 1.21 0.315");
+		ANN1 = new ANN(p);
+		for(int i=0;i<nr;i++){
+			y1[i]=ANN.StResponse(x[i]);
+		}
+		IOputs.WriteXY(args,x,y1,"ANNresPartA2.data");
+		
 		
 	}
 	public static void PartB(string[] args){
