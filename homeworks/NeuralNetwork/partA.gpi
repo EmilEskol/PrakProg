@@ -5,9 +5,9 @@ set ylabel "f(x)"
 set tics in
 set title "Estimate of f(x)=x*Exp(-x*x) with ANN"
 
-plot[-5:5] \
+plot[-1:1] \
 	"valPartA.data" with lines lw 4 lc rgb 'red' title "function",\
 	"ANNresPartA.data" with lines lw 3 lc rgb 'blue' title "ANN response",\
-	"ANNresPartA1.data" with lines lw 2 lc rgb 'green' title "ANN response before training",\
-	"ANNresPartA2.data" with lines lw 2 lc rgb 'orange' title "ANN response really good"
+	#"ANNresPartA1.data" with lines lw 2 lc rgb 'green' title "ANN response before training",\
+	#"ANNresPartA2.data" with lines lw 2 lc rgb 'orange' title "ANN response really good"
 
