@@ -8,9 +8,9 @@ public class ANN{
 	static Func<double,double> f = x => x*Exp(-x*x);
 	static Func<double,double> inF = x => -0.5*Exp(-x*x);
 	static Func<double,double> deF = x => (1-2*x*x)*Exp(-x*x);
-	static Func<double,double> de2F = x => (2*x*x-3)*2*x*Exp(-x*x);
+	static Func<double,double> de2F = x => 2*x*(-3+2*x*x)*Exp(-x*x);
 	static vector p,x,y;
-	double acc=0.000001;
+	double acc=0.0001;
 	
 	public ANN(int n){
 		ANN.n=n;
@@ -46,7 +46,7 @@ public class ANN{
 		double result=0;
 		for(int i=0;i<ANN.n;i++){
 			int j=i*3;
-			result+=inF((x-p[j])/p[j+1])*p[j+2];
+			result+=inF((x-p[j])/p[j+1])*p[j+2]*p[j+1];
 		}
 		return result;
 	}
@@ -54,7 +54,7 @@ public class ANN{
 		double result=0;
 		for(int i=0;i<ANN.n;i++){
 			int j=i*3;
-			result+=deF((x-p[j])/p[j+1])*p[j+2];
+			result+=deF((x-p[j])/p[j+1])*p[j+2]/p[j+1];
 		}
 		return result;
 	}
@@ -62,7 +62,7 @@ public class ANN{
 		double result=0;
 		for(int i=0;i<ANN.n;i++){
 			int j=i*3;
-			result+=de2F((x-p[j])/p[j+1])*p[j+2];
+			result+=de2F((x-p[j])/p[j+1])*p[j+2]/Pow(p[j+1],2);
 		}
 		return result;
 	}

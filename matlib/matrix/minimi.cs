@@ -54,7 +54,7 @@ public static class Minimi{
 				minFx=fx;
 				minX=x.copy();
 			}
-			if(i>=50000){
+			if(i>=30000){
 				WriteLine($"The gradian of the last step (step nr {i}) is {grade.norm()}");
 				minX.print("and the best found value is f(x) = {minfx} with x=");
 				return minX;

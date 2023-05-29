@@ -1,0 +1,12 @@
+set terminal svg enhanced background rgb 'white'
+set key left
+set grid
+set xlabel "x"
+set ylabel "f(x)"
+set tics in
+set title "Estimate of second derivative of f(x)=Cos(x) with ANN"
+
+plot[-1:1] \
+	"ValDe2PartB.data" with lines lw 2 lc rgb 'red' title "Func of second derivative",\
+	"ANNresDe2PartB.data" with points pt 2 title "ANN Second derivative",\
+

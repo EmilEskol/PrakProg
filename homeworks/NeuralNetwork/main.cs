@@ -29,7 +29,7 @@ public class main{
 			x[i]=4.0/nr*i-2;
 			y[i]=f(x[i]);
 		}
-		vector p=new vector("0.462 -0.383 1.82 -0.69 0.381 -1.4 -0.0528 1.21 0.315");
+		//vector p=new vector("0.462 -0.383 1.82 -0.69 0.381 -1.4 -0.0528 1.21 0.315");
 
 
 		ANN1 = new ANN(3);
@@ -47,7 +47,7 @@ public class main{
 		(x,y)=trainData(2.0,1000);
 		ANN1.train(x,y);
 		
-		nr=300;
+		nr=50;
 		y1=new vector(nr);
 		y=new vector(nr);
 		x=new vector(nr);
@@ -69,10 +69,27 @@ public class main{
 		WriteLine("Which is compared for the first derivative with Exp(-x*x)*(-5*Sin(5*x-1)-2*x*Cos(5*x-1))");
 		WriteLine("and for the second derivative Exp(-x*x)*(20*x*Sin(5*x-1)-(4*x*x-27)*Cos(5*x-1))");
 		WriteLine("and for the integral "); 
-		Func<double,double> inF = x =>Exp(-x*x)*(-5*Sin(5*x-1)-2*x*Cos(5*x-1));
-		Func<double,double> deF = x =>Exp(-x*x)*(-5*Sin(5*x-1)-2*x*Cos(5*x-1));
-		Func<double,double> de2F = x =>Exp(-x*x)*(20*x*Sin(5*x-1)-(4*x*x-27)*Cos(5*x-1));
-		nr=300;
+		Func<double,double> inF = x =>Sin(x);//Exp(-x*x)*(-5*Sin(5*x-1)-2*x*Cos(5*x-1));
+		f=x => Cos(x);
+		Func<double,double> deF = x =>-Sin(x);//Exp(-x*x)*(-5*Sin(5*x-1)-2*x*Cos(5*x-1));
+		Func<double,double> de2F = x =>-Cos(x);//Exp(-x*x)*(20*x*Sin(5*x-1)-(4*x*x-27)*Cos(5*x-1));
+		vector p = new vector("1.29 -3.49 8.94 -4.31 -4.37 10.8 -2.46 8.89 8.36");
+		ANN1 = new ANN(p);
+		nr=1000;
+		y=new vector(nr);
+		y1=new vector(nr);
+		x=new vector(nr);
+		
+		//ANN1.train(x,y);
+		//(x,y)=trainData(4.0,1000);
+		//ANN1.train(x,y);
+		(x,y)=trainData(2.0,1000);
+		ANN1.train(x,y);
+		
+		
+
+
+		nr=50;
 		vector yIn=new vector(nr);
 		vector yDe=new vector(nr);
 		vector yDe2=new vector(nr);
@@ -82,10 +99,10 @@ public class main{
 		x=new vector(nr);
 		for(int i=0;i<nr;i++){
 			x[i]=2.2/nr*i-1.1;
-			yIn[i]=ANN.inResponse(x[i]);
+			yIn[i]=ANN.inResponse(x[i])-ANN.inResponse(0);
 			yDe[i]=ANN.deResponse(x[i]);
 			yDe2[i]=ANN.de2Response(x[i]);
-			yInVal[i]=inF(x[i]);
+			yInVal[i]=inF(x[i])+inF(0);
 			yDeVal[i]=deF(x[i]);
 			yDe2Val[i]=de2F(x[i]);
 		}

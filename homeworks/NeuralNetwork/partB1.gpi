@@ -1,0 +1,12 @@
+set terminal svg enhanced background rgb 'white'
+set key right
+set grid
+set xlabel "x"
+set ylabel "f(x)"
+set tics in
+set title "Estimate of first derivative of f(x)=cos(x) with ANN"
+
+plot[-1:1] \
+	"ValDePartB.data" with lines lw 2 lc rgb 'red' title "Func of first derivative",\
+	"ANNresDePartB.data" with points pt 2 title "ANN First derivative",\
+	
