@@ -5,8 +5,8 @@ using static matrix;
 
 public static class Minimi{
 	static int dim,i;
-	static double fx,lambda,uTy,minfx;
-	static vector grade,x,y,delX,s;
+	static double fx,lambda,uTy,minFx;
+	static vector grade,x,y,delX,s,minX;
 	static matrix B,delB,u;
 	
 	public static vector qnewton(Func<vector,double> f, vector start, double acc){
@@ -14,11 +14,10 @@ public static class Minimi{
 		x=start.copy();
 		B=id(dim);
 		grade=gradian(f,x);
-		grade.print($"norm= {grade.norm()} grade begnning");
 		u=new matrix(dim,1);
 		i=0;
 		fx=f(x);
-		minfx=10;
+		minFx=1;
 		do{
 			delX=-B*grade;
 			lambda=1;
@@ -46,17 +45,19 @@ public static class Minimi{
 			fx=f(x);
 
 			//Info gatheret between runs
-			if(i%5000==0){
+			/*if(i%5000==0){
 				WriteLine($"i= {i} f(x)= {fx}, grade={grade.norm()}");
 				x.print("");
+			}*/
+			if(minFx>=fx){
+				//x.print($"f(x)={fx}, grade= {grade.norm()}, x=");
+				minFx=fx;
+				minX=x.copy();
 			}
-			if(minfx>=fx){
-				x.print($"f(x)={fx}, grade= {grade.norm()}, x=");
-				minfx=fx;
-			}
-			if(i>=30000){
-				WriteLine($"f(x) = {fx}. The gradian of the last step (step nr {i}) is {grade.norm()} and process failed");
-				return x;
+			if(i>=50000){
+				WriteLine($"The gradian of the last step (step nr {i}) is {grade.norm()}");
+				minX.print("and the best found value is f(x) = {minfx} with x=");
+				return minX;
 			}	
 		}while(grade.norm()>acc);
 		WriteLine($"f(x) = {f(x)}. The gradian of the last step (step nr {i}) is {grade.norm()} ");

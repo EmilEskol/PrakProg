@@ -1,0 +1,17 @@
+set terminal svg enhanced background rgb 'white'
+set key left
+set grid
+set xlabel "x"
+set ylabel "f(x)"
+set tics in
+set title "Estimate of Integral,derivative and second derivative of f(x)=Cos(5x-1)*Exp(-x*x) with ANN"
+
+plot[-1:1] \
+	"valPartA.data" with lines lw 2 lc rgb 'red' title "function",\
+	"ANNresInPartB.data" with lines lw 2 lc rgb 'blue' title "ANN Integral",\
+	"ANNresDePartB.data" with lines lw 2 lc rgb 'green' title "ANN First derivative",\
+	"ANNresDe2PartB.data" with lines lw 2 lc rgb 'orange' title "ANN Second derivative",\
+	"ValInPartB.data" with lines lt 4 lw 4 lc rgb 'blue' title "Func of integral",\
+	"ValDePartB.data" with dashedlines lw 4 lc rgb 'green' title "Func of first derivative",\
+	"ValDe2PartB.data" with lines lw 4 lc rgb 'orange' title "Func of second derivative"
+
