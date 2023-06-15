@@ -1,0 +1,12 @@
+set terminal svg enhanced background rgb 'white'
+set key left
+set grid
+set xlabel "N"
+set ylabel "t (s)"
+set tics in
+set title "Time for QR decomp an NxN matrix"
+
+plot \
+	"Out.times.data" with points pt 2 title "Collected data",\
+	"partCfit.data" with lines lw 2 lc rgb 'red' title "Fit of N^3",\
+

@@ -71,6 +71,7 @@ public static class Minimi{
 				dx=Pow(2,-26);
 			vector xi=x1.copy();
 			xi[i]+=dx;
+			//WriteLine($"f(xi)={f(xi)} f(x1)={f(x1)} {dx} {x1[i]}");
 			result[i]=(f(xi)-f(x1))/dx;
 		}
 		return result;

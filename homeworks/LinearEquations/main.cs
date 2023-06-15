@@ -5,8 +5,19 @@ using static matrix;
 using static QRGS;
 
 static class main{
-	static int Main(){
-		int returnCode=0;
+	static matrix Test;
+	static vector Test1;
+	static int returnCode=0;
+	
+	static int Main(string[] args){
+	if(args.Length==0){
+		PartAB();
+	}
+
+	partC(args);
+	return returnCode;
+	}
+	static void PartAB(){
 		bool test=true;
 		var rnd = new Random();
 		int maxInt = 5;
@@ -20,6 +31,7 @@ static class main{
 		for(int i=0;i<n;i++)
 			for(int j=0;j<m;j++)
 				A[i,j]=rnd.Next(maxInt*3);
+		A.print("A= ");
 		(matrix Q, matrix R)=decomp(A);
 
 		if(test){
@@ -30,8 +42,10 @@ static class main{
 						test=false;
 					}
 		}
-		if(test)
-			Write("Test passed\n");
+		if(test){
+			Write("Test passed\n");			
+			R.print("R= ");
+		}
 		else{
 			Write("Test failed\n");
 			returnCode++;
@@ -39,8 +53,8 @@ static class main{
 		test=true;
 		
 		if(test){
-			Write("Testing if Q^T*Q=1...");
-			matrix Test=Q.T*Q;
+			Write("Testing if Q^T*Q=I...");
+			Test=Q.T*Q;
 			for(int i=0;i<m;i++)
 				for(int j=0;j<m;j++)
 					if(i==j){
@@ -51,8 +65,10 @@ static class main{
 						if(!approx(Test[i,j],0))
 							test=false;
 		}
-		if(test)
+		if(test){
 			Write("Test passed\n");
+			Test.print("Q^T*Q= ");
+		}
 		else{
 			Write("Test failed\n");
 			returnCode++;
@@ -61,14 +77,16 @@ static class main{
 
 		if(test){
 			Write("Testing if Q*R=A...");
-			matrix Test=Q*R;
+			Test=Q*R;
 			for(int i=0;i<m;i++)
 				for(int j=0;j<m;j++)
 					if(!approx(Test[i,j],A[i,j]))
 							test=false;
 		}
-		if(test)
+		if(test){
 			Write("Test passed\n");
+			Test.print("Q*R= ");
+		}
 		else{
 			Write("Test failed\n");
 			returnCode++;
@@ -82,19 +100,22 @@ static class main{
 			for(int j=0;j<n;j++)
 				A[i,j]=rnd.Next(maxInt*3);
 		}
+		b.print("b= ");
 		(Q,R)=decomp(A);
 		vector x=solve(Q,R,b);
 		
 
 		if(test){
 			Write("Testing if A*x=b...");
-		vector Test=A*x;
+			Test1=A*x;
 			for(int i=0;i<m;i++)
-				if(!approx(Test[i],b[i]))
+				if(!approx(Test1[i],b[i]))
 					test=false;
 		}
-		if(test)
+		if(test){
 			Write("Test passed\n");
+			Test1.print("A*x= ");
+		}
 		else{
 			Write("Test failed\n");
 			returnCode++;
@@ -104,7 +125,7 @@ static class main{
 
 		if(test){
 			Write("Testing if A*B=I...");
-		matrix Test=A*B;
+			Test=A*B;
 			for(int i=0;i<m;i++)
 				for(int j=0;j<m;j++)
 					if(i==j){
@@ -115,14 +136,28 @@ static class main{
 						if(!approx(Test[i,j],0))
 							test=false;
 		}
-		if(test)
+		if(test){
 			Write("Test passed\n");
+			Test.print("A*B= ");
+		}
 		else{
 			Write("Test failed\n");
 			returnCode++;
 		}
 		test=true;
-			
-		return returnCode;
+	}
+	static void partC(string[] args){
+		int inN=0;
+		foreach(var arg in args){
+			var words=arg.Split(":");
+			if(words[0]=="-size")
+				inN=Int32.Parse(words[1]);
+		}
+		var rnd = new Random();
+		matrix A=new matrix(inN,inN);
+		for(int i=0;i<inN;i++)
+			for(int j=0;j<inN;j++)
+				A[i,j]=rnd.Next(100);
+		(matrix Q, matrix R)=decomp(A);
 	}
 }

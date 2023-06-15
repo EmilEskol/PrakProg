@@ -21,8 +21,9 @@ public static class IOputs{
 		int i=0;
 		double[] x=new double[1];
 		double[] y=new double[1];
+		var separators = new char[] {' ','\t'};
 		for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){
-			var numbers = line.Split(",",splitOptions);
+			var numbers = line.Split(separators,splitOptions);
 			Array.Resize(ref x,i+1);
 			Array.Resize(ref y,i+1);
 			x[i]=double.Parse(numbers[0]);
