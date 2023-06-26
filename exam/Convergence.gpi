@@ -1,0 +1,9 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "number of data points" font ",16"
+set ylabel "Differnce from f(x)" font ",16"
+set tics in
+set title "Berrut splines Convergence" font ",20"
+
+plot \
+	"Convergence.data" title "f(x)=cos(x)" with linespoints, \

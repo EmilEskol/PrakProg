@@ -1,0 +1,12 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "x" font ",16"
+set ylabel "y" font ",16"
+set tics in
+set title "Berrut splines plot" font ",20"
+
+plot \
+	"berrutData.data" title "Calculated data (f(x)=x )" with points, \
+	"berrutSpline.data" title "Berrut splines for f(x)" with lines,\
+	"berrutData2.data" title "Calculated data (g(x)=0.1*x^2 )" with points, \
+	"berrutSpline2.data" title "Berrut splines for g(x)" with lines

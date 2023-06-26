@@ -1,4 +1,3 @@
-//Hello
 using System;
 using static System.Console;
 using static System.Math;
@@ -61,7 +60,7 @@ public class qSpline{
 				for(int j=0;j<m;j++){
 					step=(j-1)*(x[i+1]-x[i])/m;
 					xData[m*i+j]=x[i]+step;
-					yData[m*i+j]=/*evaluate(x[i]+step);*/y[i]+b[i]*step+c[i]*step*step;
+					yData[m*i+j]=y[i]+b[i]*step+c[i]*step*step;
 				}
 			}
 		return (xData,yData);

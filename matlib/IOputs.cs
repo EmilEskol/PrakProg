@@ -21,7 +21,7 @@ public static class IOputs{
 		int i=0;
 		double[] x=new double[1];
 		double[] y=new double[1];
-		var separators = new char[] {' ','\t'};
+		var separators = new char[] {' ','\t',','};
 		for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){
 			var numbers = line.Split(separators,splitOptions);
 			Array.Resize(ref x,i+1);
@@ -86,6 +86,25 @@ public static class IOputs{
 				outstream.Write($"{y[i][j]} ");
 			}
 			outstream.WriteLine();
+		}
+		outstream.Close();
+	}
+	public static void WriteXY(string[] args,genlist<double> x,genlist<double> 
+		y,string FileName){
+		string outfile=null;
+		foreach(var arg in args){
+			var words=arg.Split(":");
+			if(words[0]=="-output"&&words[1]==FileName){
+				outfile=words[1];
+			}
+		}
+		if(outfile==null){
+			Error.WriteLine("Wrong outputfilename");
+		}
+		
+		var outstream= new System.IO.StreamWriter(outfile);
+		for(int i=0;i<x.size;i++){
+			outstream.WriteLine($"{x[i]} {y[i]}");
 		}
 		outstream.Close();
 	}

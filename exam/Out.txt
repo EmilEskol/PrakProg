@@ -1,0 +1,43 @@
+Data for Berrutspline:
+x:         0          1          2          3          4          5          6          7          8          9 
+y:         0        0.1        0.4        0.9        1.6        2.5        3.6        4.9        6.4        8.1 
+j0 30
+j>x2.size
+j1 30
+j>x2.size
+j2 30
+j>x2.size
+j3 30
+j>x2.size
+j4 30
+j>x2.size
+j5 30
+j>x2.size
+j6 30
+j>x2.size
+j7 30
+j>x2.size
+j8 30
+j>x2.size
+j9 30
+j>x2.size
+j10 30
+j11 30
+j12 30
+j13 30
+j14 30
+j15 30
+j16 30
+j17 30
+j18 30
+j19 30
+j20 30
+j21 30
+j22 30
+j23 30
+j24 30
+j25 30
+j26 30
+j27 30
+j28 30
+j29 30

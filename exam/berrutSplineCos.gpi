@@ -1,0 +1,13 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "x" font ",16"
+set ylabel "f(x)" font ",16"
+set tics in
+set title "Berrut splines (BS) plot of different spans and\nnumber of data points using f(x)=cos(x)" font ",20"
+
+plot [-0.2:15.2][-2:1.3] \
+	"berrutDataCos.data" title "Calculated data" with points, \
+	"berrutSplineCos.data" title "BS, 10 points of data,span of 10" with lines,\
+	"berrutSplineCos2.data" title "BS, 10 points of data,span of 30" with lines,\
+	"berrutSplineCos3.data" title "BS, 30 points of data,span of 10" with lines,\
+	"berrutSplineCos4.data" title "BS, 30 points of data,span of 30" with lines,\
