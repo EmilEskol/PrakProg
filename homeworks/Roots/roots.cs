@@ -2,6 +2,7 @@ using System;
 using static System.Console;
 using static System.Math;
 using static matrix;
+using static QRGS;
 
 public static class Roots{
 	public static vector NMBL(Func<vector,vector> f, vector x, double eps=1e-2){

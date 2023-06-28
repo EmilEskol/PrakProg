@@ -15,7 +15,7 @@ main.exe: main.cs roots.dll matlib.dll IOput.dll
 	$(MKEXE) $(DLLS)
 $(Data) $(Data2):main.exe
 
-matlib.dll: $(DIR)/matrix/*.cs $(DIR)/genlist.cs
+matlib.dll: $(DIR)/matrix/matrix.cs $(DIR)/matrix/vector.cs $(DIR)/matrix/ODE.cs $(DIR)/matrix/QRGS.cs $(DIR)/genlist.cs
 	$(MKLIBF)
 IOput.dll:$(DIR)/IOputs.cs matlib.dll
 	$(MKLIBF) $(DLLS)
