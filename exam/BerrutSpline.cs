@@ -18,13 +18,13 @@ public class BerrutSpline{
 	public BerrutSpline(string[] args, vector xs,vector ys){
 		n=xs.size;
 		x=xs.copy();
-		WriteLine($"Size of vectors {n}");
+		//WriteLine($"Size of vectors {n}");
 		foreach(var arg in args){
 			var words = arg.Split(':');
 			if(words[0]=="-threads") 
 				nThreads = (int)float.Parse(words[1]);
 		}
-		WriteLine($"N# of threads {nThreads} and N# data points {n}");
+		//WriteLine($"N# of threads {nThreads} and N# data points {n}");
 		locs = new data[nThreads];
 		for(int i=0;i<nThreads;i++){
 			locs[i] = new data();
@@ -36,7 +36,7 @@ public class BerrutSpline{
 				locs[i].xs[j-locs[i].a] = xs[j];
 				locs[i].ys[j-locs[i].a] = ys[j];
 			}
-			WriteLine($"Thread number{i} has a={locs[i].a} b={locs[i].b}");
+			//WriteLine($"Thread number{i} has a={locs[i].a} b={locs[i].b}");
 		}
 	}
 	public double evaluate(double z){

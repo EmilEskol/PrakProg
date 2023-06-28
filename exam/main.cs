@@ -110,7 +110,14 @@ class main{
 		
 	}
 	public static void partC(string[] args){
-		int nPoints=2000000;
+		int nThreads=1;
+		foreach(var arg in args){
+			var words = arg.Split(':');
+			if(words[0]=="-threads")
+				nThreads=(int)float.Parse(words[1]);
+		}
+		WriteLine($"N# of threads: {nThreads}");
+		int nPoints=200000000;
 		int nEvals=10000;
 		double[] x= new double[nPoints];
 		double[] y= new double[nPoints];
@@ -135,7 +142,7 @@ class main{
 				x[j]=j;
 				y[j]=f(x[j]);
 			}
-			WriteLine($"step {i}");
+			//WriteLine($"step {i}");
 			BerrutSpline berrut= new BerrutSpline(args,x,y);
 			(double[] xs,double[] ys)=berrut.printData(nPoints);
 			/*for(int j=0;j<500;j++){

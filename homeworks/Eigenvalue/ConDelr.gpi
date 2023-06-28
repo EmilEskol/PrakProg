@@ -1,0 +1,10 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "dr (Bohr radii)" font ",16"
+set ylabel "Lowest energi (Hatree)" font ",16"
+set tics in
+set title "Convergence of dr" font ",20"
+
+plot\
+	"Delr.data" title "Found energies" with linespoints,\
+	"TheoDelr.data" title "Theoretical energies" with linespoints,\

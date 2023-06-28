@@ -17,7 +17,7 @@ OUTPUTS3=$(addprefix -output:,$(filter %.data,$(DATA3)))
 Task: Out.txt Time.txt berrutSpline.svg berrutSplineCos.svg Convergence.svg
 
 Out.txt: main.exe
-	$(TIME) mono $< -threads:1 $(OUTPUTS) $(OUTPUTS2) $(OUTPUTS3) > $@
+	mono $< -threads:1 $(OUTPUTS) $(OUTPUTS2) $(OUTPUTS3) > $@
 Time.txt: main.exe
 	>$@
 	$(TIME) mono $< -time:true -threads:1 >> $@

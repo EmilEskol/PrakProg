@@ -1,0 +1,12 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "r (Bohr radii)" font ",16"
+set ylabel "\Psi(r)" font ",16"
+set tics in
+set title "Plot of found wavefunction" font ",20"
+plot\
+	"TheoWavefunc.data" title "Theoretical S wavefunction " with lines lw 4,\
+	"TheoWavefunc1.data" title "Theoretical P wavefunction" with lines lw 4,\
+	"Wavefunc.data" title "Found S wavefunction" with linespoints lw 2 ps 1 pt 1,\
+	"Wavefunc1.data" title "Found P wavefunction" with linespoints lw 2 pt 2 ps 0.8,\
+

@@ -1,30 +1,16 @@
-Size of vectors 2000000
-N# of threads 1 and N# data points 2000000
-Thread number0 has a=0 b=2000000
-real 1.16
-user 0.45
-sys 0.63
-Size of vectors 2000000
-N# of threads 2 and N# data points 2000000
-Thread number0 has a=0 b=1000000
-Thread number1 has a=1000000 b=2000000
-real 0.49
-user 0.21
-sys 0.20
-Size of vectors 2000000
-N# of threads 3 and N# data points 2000000
-Thread number0 has a=0 b=666666
-Thread number1 has a=666666 b=1333333
-Thread number2 has a=1333333 b=2000000
-real 0.46
-user 0.21
-sys 0.17
-Size of vectors 2000000
-N# of threads 4 and N# data points 2000000
-Thread number0 has a=0 b=500000
-Thread number1 has a=500000 b=1000000
-Thread number2 has a=1000000 b=1500000
-Thread number3 has a=1500000 b=2000000
-real 0.40
-user 0.17
-sys 0.16
+N# of threads: 1
+real 6.61
+user 4.81
+sys 1.19
+N# of threads: 2
+real 6.84
+user 5.19
+sys 0.95
+N# of threads: 3
+real 6.40
+user 4.79
+sys 0.98
+N# of threads: 4
+real 6.36
+user 4.78
+sys 1.02

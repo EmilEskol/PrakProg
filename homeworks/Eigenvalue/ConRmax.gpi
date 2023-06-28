@@ -1,0 +1,9 @@
+set terminal svg enhanced background rgb 'white'
+set key bottom right
+set xlabel "Rmax (Bohr radii)" font ",16"
+set ylabel "Lowest energi (Hatree)" font ",16"
+set tics in
+set title "Convergence of Rmax" font ",20"
+plot\
+	"Rmax.data" title "Found energies" with linespoints,\
+	"TheoRmax.data" title "Theoretical energies" with linespoints,\

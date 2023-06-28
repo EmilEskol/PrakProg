@@ -1,0 +1,25 @@
+Part A
+A: 
+
+        94         92         30          8 
+        92         94         84         56 
+        30         84         95         73 
+         8         56         73         28 
+V: 
+
+     0.402      -0.33      0.724      0.453 
+    -0.529      0.552      0.153      0.626 
+    -0.172     -0.631      -0.53       0.54 
+     0.727      0.434     -0.414      0.333 
+D: 
+
+     -25.6          0          0          0 
+         0        -13          0          0 
+         0          0       86.8          0 
+         0          0          0        263 
+Testing if V^T*A*V=D...Test passed
+Testing if V*D*V^T=A...Test passed
+Testing if V^T*V=1...Test passed
+Testing if V*V^T=1...Test passed
+Part b
+The found energy is -0.414208239230934
