@@ -1,9 +1,14 @@
-set terminal svg enhanced background rgb 'white'
+set terminal svg enhanced background rgb 'white' size 600,650
 set key bottom right
 set xlabel "number of data points" font ",16"
 set ylabel "Differnce from f(x)" font ",16"
 set tics in
-set title "Berrut splines Convergence" font ",20"
+set size 1,1
+set multiplot layout 2,1 columns  title "Berrut splines convergence" font ",20"
+	plot\
+		"Convergence3.data" title "f(x)=x^2" with linespoints,\
+		"Convergence4.data" title "f(x)=2x^2" with linespoints
+	plot\
+		"Convergence.data" title "f(x)=cos(x)" with linespoints, \
+		"Convergence2.data" title "f(x)=Exp(-x^2)" with linespoints
 
-plot \
-	"Convergence.data" title "f(x)=cos(x)" with linespoints, \
