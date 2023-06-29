@@ -1,7 +1,7 @@
 set terminal svg enhanced background rgb 'white' size 600,650
-set key bottom right
+set key
 set xlabel "number of data points" font ",16"
-set ylabel "Differnce from f(x)" font ",16"
+set ylabel "Differnce from (f(x)^2)/N# of points" font ",16"
 set tics in
 set size 1,1
 set multiplot layout 2,1 columns  title "Berrut splines convergence" font ",20"

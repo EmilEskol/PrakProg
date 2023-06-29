@@ -37,4 +37,4 @@ partC.svg: partC.gpi Out.times.data partCfit.data
 	gnuplot $< > $@
 
 clean:
-	rm -f *.txt *.exe *.dll *.data *.svg
+	rm -f Out.txt OutC.txt *.exe *.dll *.data *.svg

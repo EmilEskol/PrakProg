@@ -6,9 +6,10 @@ using static Integ;
 
 public class main{
 	public static void Main(string[] args){
+		WriteLine("======================== Part a ======================");
 		Func<double,double> f = x => Sqrt(x);
 		(double a1, int c1) = integrate(f,0,1);
-		WriteLine($"{f(1)} {f(9)} {Sqrt(9)}");
+		//WriteLine($"{f(1)} {f(9)} {Sqrt(9)}");
 		f = x => 1/Sqrt(x);
 		(double a2,int c2) = integrate(f,0,1);
 		WriteLine($"integrate Sqrt(x) gives {a1} from 0 to 1 and used {c1} iterations");

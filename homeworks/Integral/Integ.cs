@@ -3,14 +3,14 @@ using static System.Console;
 using static System.Math;
 
 public static class Integ{
-	public static (double,int) integrate(Func<double,double> f, double a, double b,int count=0, double delta=0.001,
-		double eps=0.001,double f2=Double.NaN, double f3= Double.NaN){
+	public static (double,int) integrate(Func<double,double> f, double a, double b,int count=0, double delta=0.000001,
+		double eps=0.00001,double f2=Double.NaN, double f3= Double.NaN){
 		double h=b-a;
 
 		if(Double.IsNaN(f2)||Double.IsNaN(f3)){
 			f2=f(a+2*h/6);
 			f3=f(a+4*h/6);
-			WriteLine($"delta {delta},{eps}");
+			//WriteLine($"delta {delta},{eps}");
 		}
 		double f1=f(a+h/6);
 		double f4=f(a+5*h/6);

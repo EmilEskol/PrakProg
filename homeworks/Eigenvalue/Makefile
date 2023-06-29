@@ -29,4 +29,4 @@ Wavefunc.svg:Wavefunc.gpi $(DATA2)
 	gnuplot $< > $@
 $(DATA): main.cs
 clean:
-	rm -f *.txt *.exe *.dll
+	rm -f Out.txt *.exe *.dll

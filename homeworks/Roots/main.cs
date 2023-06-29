@@ -79,7 +79,7 @@ public class main{
 			count=0;
 			
 			rmin=Pow(2,-(i+4));
-			WriteLine($"rmin={rmin}");
+			//WriteLine($"rmin={rmin}");
 			yrmin=new vector(rmin-rmin*rmin,1-2*rmin);
 			root=NMBL(func,E,Pow(10,-3));
 			ConRmin[i-1]=Abs(-0.5-root[0]);

@@ -36,13 +36,14 @@ class main{
 		}
 		
 		
-		WriteLine("Data for Berrutspline:");
-		
+		WriteLine("Data for berrutsplines:");
+		for(int i=0;i<x.size;i++)
+			WriteLine($"x={x[i]}	f(x)={y1[i]}	g(x)={y2[i]}");
 		BerrutSpline berrut= new BerrutSpline(args,x,y1);
 		BerrutSpline berrut2= new BerrutSpline(args,x,y2);
 
 		//Making a plot with berut
-		WriteLine("Making a plot with berut");
+		WriteLine("Making a plot with berrut see berrutSpline.svg");
 		(double[] xs,double[] ys)=berrut.printData(100);
 		(double[] xs2,double[] ys2)=berrut2.printData(100);
 
@@ -54,7 +55,7 @@ class main{
 	}
 	public static void partB1(string[] args){
 		//Testing different methods to make berut spline converge
-		WriteLine("Testing different methods to make berut spline converge");
+		WriteLine("Testing different methods to make berut spline converge\n see berrutSplineCos.svg for result");
 		vector x1= new vector(10);
 		vector x2= new vector(10);
 		vector x3= new vector(30);
@@ -97,7 +98,9 @@ class main{
 	public static void partB2(string[] args){
 		/*	Testing convergence of different functions with using a broader band 
 			and larger amounts of numbers*/
-		WriteLine("Testing convergence of different functions with using a broader band\nand larger amounts of numbers");	
+		WriteLine("Testing convergence of different functions with using a broader band");
+		WriteLine("and larger amounts of numbers see Convergence.svg to see the result");	
+
 		Func<double,double> f= x=>Cos(x);
 		Conver(args,f,"Convergence.data",10,50);
 		f= x=> Exp(-x*x);
@@ -106,28 +109,33 @@ class main{
 		Conver(args,f,"Convergence3.data",10,50);
 		f= x=> 2*x*x;
 		Conver(args,f,"Convergence4.data",10,50);
-	
+		WriteLine("Timing evaluating with different amounts of threads");
 		
 	}
 	public static void partC(string[] args){
 		int nThreads=1;
+		int nPoints=2000;
+		int nEvals=5000;
 		foreach(var arg in args){
 			var words = arg.Split(':');
 			if(words[0]=="-threads")
 				nThreads=(int)float.Parse(words[1]);
+			if(words[0]=="-nPoints")
+				nPoints=(int)float.Parse(words[1]);
+			if(words[0]=="-nEvals")
+				nEvals=(int)float.Parse(words[1]);
 		}
-		WriteLine($"N# of threads: {nThreads}");
-		int nPoints=200000000;
-		int nEvals=10000;
+		
+		WriteLine($"N# of threads: {nThreads}, N# of points {nPoints} and N# of evaluations {nEvals}");
 		double[] x= new double[nPoints];
 		double[] y= new double[nPoints];
 		for(int i=0;i<nPoints;i++){
 			x[i]=i*1.0/nPoints-0.5;
-			y[i]=Exp(-x[i]*x[i]);
+			y[i]=Cos(i*1.0/nPoints-0.5)+Exp(i*1.0/nPoints-0.5);
 		}
 		BerrutSpline berrut= new BerrutSpline(args,x,y);
-		for(int i=0;i>nEvals;i++)
-			berrut.evaluate(i*0.8/nEvals-0.4);		
+		for(int i=0;i<nEvals;i++)
+			berrut.evaluate(i*10.0/nEvals-5);		
 	}
 	public static void Conver(string[] args, Func<double,double> f,string filename,int step,int max){
 		double diff=0;

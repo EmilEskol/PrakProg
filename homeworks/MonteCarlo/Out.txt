@@ -1,15 +1,15 @@
 Setup for unit sphere
-a=         0          0 
+Limits: a=         0          0 
 b=         1       6.28 
-f(r)=1 and the result is 3.13762156314905 +- 0.00575460043473053
+f(r)=1 and the result is 3.15739302718807 +- 0.00571915652453927
 and it should be 3.14159265358979
 Calculating (1-cos(x)*cos(y)*cos(z))^-1
-a=         0          0          0 
+Limits: a=         0          0          0 
 b=      3.14       3.14       3.14 
-f(x)=x^2+y^2 and the result is 1.39547020630104 +- 0.0122265286500291
+f(x)=x^2+y^2 and the result is 1.40292375532755 +- 0.0217283965273654
 and it should be 1.39320393
 ===============Part b===================
-a=         0          0 
+Limits: a=         0          0 
 b=         1       6.28 
 f(x)=r^2 and the result is 3.14146191384535 +- 1.32066158451672E-06
 and it should be 3.14159265358979

@@ -16,7 +16,7 @@ public class main{
 		double[] ys2 = new double[10];
 		
 		(double val,double err)=plMonteCarlo(f,a,b,100000);
-		a.print("a=");
+		a.print("Limits: a=");
 		b.print("b=");
 		WriteLine($"f(r)=1 and the result is {val} +- {err}");
 		WriteLine($"and it should be {PI}");
@@ -35,7 +35,7 @@ public class main{
 		a = new vector(3);
 		b = new vector(PI,PI,PI);
 		(val, err)=plMonteCarlo(f,a,b,1000000);
-		a.print("a=");
+		a.print("Limits: a=");
 		b.print("b=");
 		WriteLine($"f(x)=x^2+y^2 and the result is {val} +- {err}");
 		WriteLine($"and it should be {1.39320393}");
@@ -46,7 +46,7 @@ public class main{
 		a = new vector(2);
 		b = new vector(1,2*PI);
 		(val,err)=qMonteCarlo(f,a,b,100000);
-		a.print("a=");
+		a.print("Limits: a=");
 		b.print("b=");
 		WriteLine($"f(x)=r^2 and the result is {val} +- {err}");
 		WriteLine($"and it should be {PI}");

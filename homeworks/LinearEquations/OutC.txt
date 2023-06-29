@@ -1,3 +1,3 @@
 Fitting time data on a*x^3+b using minimiser, which results in 
-f(x) = 0.103206680860829. The gradian of the last step (step nr 3) is 1.0732833311821E-05 
-Fitting parameters (a,b) of a*x^3+b   3.84e-09     0.0581 
+f(x) = 0.169918258103475. The gradian of the last step (step nr 3) is 1.37683324413233E-05 
+Fitting parameters (a,b) of a*x^3+b   3.94e-09     0.0484 

@@ -1,3 +1,4 @@
+
 DIR = ../matlib
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 MKLIBF = mcs $^ -target:library -out:./$@
@@ -14,16 +15,16 @@ OUTPUTS2=$(addprefix -output:,$(filter %.data,$(DATA2)))
 OUTPUTS3=$(addprefix -output:,$(filter %.data,$(DATA3)))
 
 
-Task: Out.txt Time.txt berrutSpline.svg berrutSplineCos.svg Convergence.svg
+Task: Out.txt berrutSpline.svg berrutSplineCos.svg Convergence.svg
 
 Out.txt: main.exe
 	mono $< -threads:1 $(OUTPUTS) $(OUTPUTS2) $(OUTPUTS3) > $@
-Time.txt: main.exe
-	>$@
-	$(TIME) mono $< -time:true -threads:1 >> $@
-	$(TIME) mono $< -time:true -threads:2 >> $@
-	$(TIME) mono $< -time:true -threads:3 >> $@
-	$(TIME) mono $< -time:true -threads:4 >> $@
+	$(TIME) mono $< -time:true -threads:1 -nPoints:200000 >> $@
+	$(TIME) mono $< -time:true -threads:2 -nPoints:200000 >> $@
+	$(TIME) mono $< -time:true -threads:3 -nPoints:200000 >> $@
+	$(TIME) mono $< -time:true -threads:4 -nPoints:200000 >> $@
+	$(TIME) mono $< -time:true -threads:1 -nPoints:2000 -nEvals:10000 >> $@
+	$(TIME) mono $< -time:true -threads:4 -nPoints:2000 -nEvals:10000 >> $@
 
 main.exe: main.cs berrutSpline.dll matlib.dll
 	$(MKEXE) $(DLLS)
@@ -44,4 +45,4 @@ Convergence.svg:Convergence.gpi $(DATA3)
 $(DATA) $(DATA2) $(DATA3): main.exe
 
 clean:
-	rm -f *.txt *.exe *.dll *.data *.svg
+	rm -f Out.txt Time.txt *.exe *.dll *.data *.svg

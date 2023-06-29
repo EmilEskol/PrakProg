@@ -1,0 +1,26 @@
+=========Part a============
+Training ANN on 
+the cost function gives 77.4219061831103
+ and p is        0.5       -0.5          2         -1        0.5         -2          0          1          1 
+f(x) = 0.16975430950373. The gradian of the last step (step nr 620) is 9.99142834069714E-05 
+After trainning the cost function gives 0.16975430950373
+ and p is      0.419     -0.458       2.26     -0.612      0.461      -1.71    -0.0197      0.915       1.07 
+the cost function gives 0.0992748796932823
+ and p is      0.419     -0.458       2.26     -0.612      0.461      -1.71    -0.0197      0.915       1.07 
+The gradian of the last step (step nr 30000) is 16.6495403153132
+and the best found value is f(x) = {minfx} with x=     0.398     -0.507       2.78     -0.583      0.514      -2.29    -0.0495       1.01       1.59 
+After trainning the cost function gives 0.00290685392411428
+ and p is      0.398     -0.507       2.78     -0.583      0.514      -2.29    -0.0495       1.01       1.59 
+=========Part b=============
+Finding derivative, second derivative and integral of Cos(5*x-1)*Exp(-x*x)
+For the integral the function -1/2*Exp(-x*x) is used in ANN
+For the first derivative the function (1-2x)*Exp(-x*x) is used in ANN
+For the second derivate the function (2x^2-3)*2x*Exp(-x*x) is used in ANN
+Which is compared for the first derivative with Exp(-x*x)*(-5*Sin(5*x-1)-2*x*Cos(5*x-1))
+and for the second derivative Exp(-x*x)*(20*x*Sin(5*x-1)-(4*x*x-27)*Cos(5*x-1))
+and for the integral 
+the cost function gives 0.00487473303368732
+ and p is       1.29      -3.49       8.94      -4.31      -4.37       10.8      -2.46       8.89       8.36 
+f(x) = 6.9359410165469E-08. The gradian of the last step (step nr 21) is 9.94589163198301E-05 
+After trainning the cost function gives 6.9359410165469E-08
+ and p is       1.29      -3.49       8.94      -4.31      -4.37       10.8      -2.46       8.89       8.36 
