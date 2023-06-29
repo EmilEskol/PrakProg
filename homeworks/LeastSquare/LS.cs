@@ -13,7 +13,7 @@ public static class LS{
 			}
 			b[i]=y[i]/dy[i];
 		}
-		A.print("A:\n");
+		//A.print("A:\n");
 		(matrix Q,matrix R) = QRGS.decomp(A);
 		vector c=QRGS.solve(Q,R,b);
 		matrix cov=R.T*R;

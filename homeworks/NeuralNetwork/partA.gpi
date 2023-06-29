@@ -9,6 +9,5 @@ set title "Estimate of f(x)=Cos(5x-1)*Exp(-x*x) with ANN"
 plot[-1:1] \
 	"valPartA.data" with lines lw 2 lc rgb 'red' title "function",\
 	"ANNresPartA.data" with points pt 2 title "ANN response",\
-	#"ANNresPartA1.data" with lines lw 2 lc rgb 'green' title "ANN response before training",\
-	#"ANNresPartA2.data" with lines lw 2 lc rgb 'orange' title "ANN response really good"
+	
 

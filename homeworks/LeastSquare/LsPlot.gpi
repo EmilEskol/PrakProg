@@ -7,4 +7,6 @@ set title "Least sqaure fit plot"
 
 plot \
 	"ExpData.data" title "Experiment" with errorlines, \
-	"DataFit.data" with lines lw 2 lc rgb 'red' title "Fit"
+	"DataFit.data" with lines lw 2 lc rgb 'red' title "Fit",\
+	"DataFitU.data" with lines lc rgb 'black' lw 1  title "Fit+dc's",\
+	"DataFitD.data" with lines lc rgb 'black' lw 1  title "Fit-dc's"

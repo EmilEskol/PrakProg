@@ -24,11 +24,11 @@ ANN.dll: ANN.cs matlib.dll IOput.dll
 
 partAplot.svg: partA.gpi $(Data)
 	gnuplot $< > $@
-partBplot.svg: partB.gpi $(Data2)
+partBplot.svg: partB.gpi ANNresInPartB.data ValInPartB.data
 	gnuplot $< > $@
-partB1plot.svg: partB1.gpi $(Data2)
+partB1plot.svg: partB1.gpi ANNresDePartB.data ValDePartB.data
 	gnuplot $< > $@
-partB2plot.svg: partB2.gpi $(Data2)
+partB2plot.svg: partB2.gpi ValDe2PartB.data ANNresDe2PartB.data
 	gnuplot $< > $@
 clean:
 	rm -f *.svg *.dll *.exe *.data Out.txt

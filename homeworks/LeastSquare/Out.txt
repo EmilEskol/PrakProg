@@ -1,15 +1,5 @@
-A:
-
-      23.4      -23.4 
-        20        -40 
-      17.6      -52.8 
-        18        -72 
-      13.3      -79.5 
-      9.83      -88.5 
-       8.4        -84 
-       7.6      -98.8 
-      5.55      -83.3 
-Ordinary LS fit:
+The result of the ordinary LS fit is 
+Coefficients :
       4.95       0.17 
 Covarriance matrix:
 
