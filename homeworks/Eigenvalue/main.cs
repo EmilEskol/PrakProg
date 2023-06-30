@@ -34,6 +34,8 @@ static class main{
 		D.print("D: \n");
 		
 		Write("Testing if V^T*A*V=D...");
+		matrix M = VT*A*V;
+		M.print("VT*A*V: ");
 		if(!D.approx(VT*A*V))
 			test=true;
 			
@@ -44,7 +46,8 @@ static class main{
 		}else Write("Test passed\n");
 
 		Write("Testing if V*D*V^T=A...");
-		
+		M=V*D*VT;
+		M.print("V*D*VT");
 		if(!A.approx(V*D*VT))
 			test=true;
 			
@@ -55,6 +58,8 @@ static class main{
 		}else Write("Test passed\n");
 		
 		Write("Testing if V^T*V=1...");
+		M=VT*V;
+		M.print("VT*V");
 		if(!I.approx(VT*V))
 			test=true;
 			
@@ -65,6 +70,8 @@ static class main{
 		}else Write("Test passed\n");
 
 		Write("Testing if V*V^T=1...");
+		M=V*VT;
+		M.print("V*VT");
 		if(!I.approx(V*VT))
 			test=true;
 			

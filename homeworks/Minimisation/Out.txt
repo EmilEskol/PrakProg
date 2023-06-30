@@ -1,20 +1,20 @@
 =========Part a============
 Finding minimum of x^2 + y^2
-Start guess is at      -1.86       -2.9 
-The gradian of the last step (step nr 2) is  -4.64e-08  -5.63e-08 
-The minimum of x^2+y^2 is at  -3.06e-08  -3.56e-08 
+Start guess is at       4.57        1.3 
+The gradian of the last step (step nr 2) is   1.91e-08   1.64e-07 
+The minimum of x^2+y^2 is at    2.1e-09   7.47e-08 
 
  finding minimum of the Rosenbrocks valley function
-Start guess is at       0.59       2.72 
-The gradian of the last step (step nr 43) is   -0.00819    0.00468 
+Start guess is at     0.0808     -0.131 
+The gradian of the last step (step nr 36) is    0.00242   -0.00134 
 A minimum of Rosenbrocks valley function is at          1          1 
-and the value is 4.02222568044034E-07
+and the value is 2.26056277686956E-08
 
  finding minimum of the HimmelBlau's function 
-Start guess is at      0.222       0.37 
-The gradian of the last step (step nr 9) is  -0.000127  -6.66e-05 
-A minimum of HimmelBlau's function is at          3          2 
-and the value is 1.28378356966714E-10
+Start guess is at      -1.65       2.58 
+The gradian of the last step (step nr 6) is   -0.00119   -0.00243 
+A minimum of HimmelBlau's function is at      -2.81       3.13 
+and the value is 4.67417449771107E-08
 =========Part b=============
 Finding the mass and the experimetnal width of the Higgs boson
 Start value         10        120          5 
